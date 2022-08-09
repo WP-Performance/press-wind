@@ -1,5 +1,5 @@
 module.exports = {
-  // use preflight (reset CSS) overide font from theme
+  // use preflight (reset CSS) override fonts size from theme.json
   corePlugins: {
     preflight: false,
   },
@@ -9,6 +9,11 @@ module.exports = {
     fontFamily: {
       display: ['PlayfairDisplay'],
       body: ['Roboto'],
+    },
+    extend: {
+      backgroundImage: (theme) => ({
+        'wp-performance': "url('/assets/media/wp-performance.png')",
+      }),
     },
   },
   plugins: [],

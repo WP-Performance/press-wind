@@ -102,7 +102,7 @@
         },
         {
           "slug": "tertiary",
-          "color": "#F6F6F6",
+          "color": "rgb(190, 24, 93)",
           "name": "Tertiary"
         }
       ]
@@ -327,7 +327,7 @@
       },
       "link": {
         "color": {
-          "text": "var(--wp--preset--color--foreground)"
+          "text": "var(--wp--preset--color--tertiary)"
         }
       }
     },

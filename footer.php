@@ -13,7 +13,8 @@
 ?>
 
 <footer id="colophon" class="site-footer">
-</footer><!-- #colophon -->
+  <p>Created by <a href="https://wp-performance.com">https://wp-performance.com</a></p>
+</footer>
 
 </div><!-- #page -->
 

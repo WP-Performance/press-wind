@@ -1,14 +1,18 @@
 body {
-  @apply bg-gray-200;
+  @apply bg-gray-100;
+}
+
+a {
+  @apply no-underline hover:underline;
 }
 
 /** header **/
 .site-header {
-  @apply flex my-10 items-center;
+  @apply flex my-4 lg:my-10 lg:items-center lg:flex-row flex-col;
 }
 
 .site-branding {
-  @apply flex flex-col mx-10;
+  @apply flex flex-col mx-6 lg:mx-10;
 }
 
 .site-branding > p {
@@ -24,12 +28,45 @@ body {
 }
 
 /** navigation **/
-.main-navigation ul,
-.main-navigation li {
-  @apply list-none m-0;
+.main-navigation {
+  @apply mx-6 lg:mx-10 my-3;
+}
+
+.main-navigation > ul,
+.main-navigation ul > li {
+  @apply list-none m-0 p-0;
+}
+
+.main-navigation ul {
+  @apply lg:flex m-0 p-0;
+}
+
+.main-navigation ul > li {
+  @apply lg:mx-5 p-0;
+}
+
+.main-navigation ul > li > ul {
+  @apply ml-3 pl-3;
+}
+
+.main-navigation ul > li > ul > li {
+  @apply list-disc mx-0 p-0;
 }
 
 /** main **/
 .site-main {
-  @apply max-w-screen-lg mx-auto;
+  @apply max-w-screen-lg mx-6 lg:mx-auto min-h-[60vh];
+}
+
+.site-main p {
+  @apply text-gray-600;
+}
+
+/** footer */
+.site-footer {
+  @apply text-center mt-20;
+}
+
+.site-footer > p > a {
+  @apply inline-flex after:content-[''] after:ml-2 after:block after:bg-wp-performance after:bg-contain after:bg-no-repeat after:w-5 after:h-5 after:mt-1;
 }
