@@ -1,0 +1,10 @@
+@import './settings/variables.css';
+
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+
+/** GLOBAL */
+@import './has.css';

@@ -1,0 +1,7 @@
+.has-regular-font-size {
+  @apply text-base;
+}
+
+a {
+  @apply no-underline text-pink-700;
+}
