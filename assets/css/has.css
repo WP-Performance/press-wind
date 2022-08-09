@@ -3,5 +3,5 @@
 }
 
 a {
-  @apply no-underline text-pink-700;
+  @apply no-underline text-pink-700 hover:underline;
 }

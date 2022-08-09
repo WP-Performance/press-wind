@@ -1,0 +1,35 @@
+body {
+  @apply bg-gray-200;
+}
+
+/** header **/
+.site-header {
+  @apply flex my-10 items-center;
+}
+
+.site-branding {
+  @apply flex flex-col mx-10;
+}
+
+.site-branding > p {
+  @apply m-0;
+}
+
+.site-title {
+  @apply font-display text-5xl m-0;
+}
+
+.site-description {
+  @apply text-gray-500;
+}
+
+/** navigation **/
+.main-navigation ul,
+.main-navigation li {
+  @apply list-none m-0;
+}
+
+/** main **/
+.site-main {
+  @apply max-w-screen-lg mx-auto;
+}

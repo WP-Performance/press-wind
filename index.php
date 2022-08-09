@@ -24,12 +24,17 @@ get_header();
     /* Start the Loop */
     while (have_posts()) :
       the_post();
+      if (!is_home()) :
+  ?>
+        <h1><?php the_title(); ?></h1>
+    <?php
+      endif;
       the_content();
 
     endwhile;
 
   else :
-  ?>
+    ?>
 
     <p>No posts found. :(</p>
 

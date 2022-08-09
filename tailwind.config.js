@@ -5,6 +5,11 @@ module.exports = {
   },
   content: ['./**/*.{php,twig,html}', './assets/*.{js,jsx,ts,tsx,vue}'],
   safelist: [],
-  theme: {},
+  theme: {
+    fontFamily: {
+      display: ['PlayfairDisplay'],
+      body: ['Roboto'],
+    },
+  },
   plugins: [],
 }

@@ -8,3 +8,6 @@
 
 /** GLOBAL */
 @import './has.css';
+
+/** DEFAULT FOR EXAMPLE */
+@import './default.css';
