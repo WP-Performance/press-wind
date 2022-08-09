@@ -8,6 +8,10 @@ This theme is build for work with gutenberg.
 Is thinked for use concept of pattern.
 A example of pattern is in ```patterns``` directory.
 
+## PHP files
+
+This theme has just the minimal php file.
+With gutenberg blocks, it's normally sufficient
 
 ## Dependencies
 
