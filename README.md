@@ -78,3 +78,7 @@ Example :
 ```
 
 **But you can use the method by the class attribute, if you prefer. Be careful to keep maintainable project.**
+
+## Screenshot
+
+![https://github.com/WP-Performance/press-wind/blob/main/screenshot.png](https://github.com/WP-Performance/press-wind/blob/main/screenshot.png)
