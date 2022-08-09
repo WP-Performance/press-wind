@@ -11,6 +11,9 @@ module.exports = {
       body: ['Roboto'],
     },
     extend: {
+      gridTemplateColumns: {
+        main: '8rem 1fr 8rem',
+      },
       backgroundImage: (theme) => ({
         'wp-performance': "url('/assets/media/wp-performance.png')",
       }),

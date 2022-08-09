@@ -59,7 +59,15 @@ a {
 
 /** main **/
 .site-main {
-  @apply max-w-screen-lg mx-6 lg:mx-auto min-h-[60vh];
+  @apply max-w-screen-xl mx-6 xl:mx-auto min-h-[60vh] grid xl:grid-cols-main;
+}
+
+.site-main .main-content {
+  @apply xl:col-start-2 xl:col-end-3;
+}
+
+.site-main .main-content .alignwide {
+  @apply xl:-ml-32 xl:-mr-32;
 }
 
 .site-main p {

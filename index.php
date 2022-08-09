@@ -17,31 +17,33 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
+  <div class="main-content">
 
-  <?php
-  if (have_posts()) :
-
-    /* Start the Loop */
-    while (have_posts()) :
-      the_post();
-      if (!is_home() && !is_front_page()) :
-  ?>
-        <h1><?php the_title(); ?></h1>
     <?php
-      endif;
-      the_content();
+    if (have_posts()) :
 
-    endwhile;
-
-  else :
+      /* Start the Loop */
+      while (have_posts()) :
+        the_post();
+        if (!is_home() && !is_front_page()) :
     ?>
+          <h1><?php the_title(); ?></h1>
+      <?php
+        endif;
+        the_content();
 
-    <p>No posts found. :(</p>
+      endwhile;
 
-  <?php
+    else :
+      ?>
 
-  endif;
-  ?>
+      <p>No posts found. :(</p>
+
+    <?php
+
+    endif;
+    ?>
+  </div>
 
 </main><!-- #main -->
 
