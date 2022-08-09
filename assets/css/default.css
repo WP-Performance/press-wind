@@ -23,6 +23,10 @@ a {
   @apply font-display text-5xl m-0;
 }
 
+.site-title a {
+  @apply hover:no-underline;
+}
+
 .site-description {
   @apply text-gray-500;
 }

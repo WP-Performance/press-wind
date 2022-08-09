@@ -31,7 +31,7 @@ define('WP_ENV', 'development');
 define('WP_ENV', 'production');
 ```
 
-## Script
+## Scripts
 
 Launch dev mode
 ```
