@@ -42,6 +42,8 @@ define('WP_ENV', 'development');
 define('WP_ENV', 'production');
 ```
 
+### With Vitejs, you have a dev server include. When you change a file, the browser reload the page.
+
 ## Scripts
 
 Launch dev mode
