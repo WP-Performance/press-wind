@@ -5,8 +5,10 @@ WordPress Theme base with Tailwind CSS and Vite JS.
 ## Concept
 
 This theme is build for work with gutenberg.
-Is thinked for use concept of pattern.
+It's thinked for use concept of pattern.
 A example of pattern is in ```patterns``` directory.
+The theme.json is used for the settings of theme.
+The fonts pass by the new WP font loader. Not by CSS or TailwindCSS.
 
 ## PHP files
 
