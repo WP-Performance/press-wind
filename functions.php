@@ -2,8 +2,12 @@
 
 namespace  PressWind;
 
+if (!defined('WP_ENV')) {
+  define('WP_ENV', 'development');
+}
 
 require_once dirname(__FILE__) . '/inc/assets.php';
+require_once dirname(__FILE__) . '/inc/gutenberg/index.php';
 
 /**
  * Theme setup.
@@ -11,8 +15,11 @@ require_once dirname(__FILE__) . '/inc/assets.php';
 function setup()
 {
   add_theme_support('automatic-feed-links');
+
   add_theme_support('title-tag');
+
   add_theme_support('post-thumbnails');
+
   add_theme_support('html5', [
     'comment-form',
     'comment-list',
@@ -31,12 +38,12 @@ function setup()
   ]);
 
   register_nav_menus(array(
-    'primary'   => __('Primary Menu', 'presswind'),
-    // 'secondary' => __('Secondary Menu', 'presswind')
+    'primary'   => __('Primary Menu', 'press-wind'),
+    // 'secondary' => __('Secondary Menu', 'press-wind')
   ));
 
 
-  load_theme_textdomain('presswind', get_template_directory() . '/languages');
+  load_theme_textdomain('press-wind', get_template_directory() . '/languages');
 }
 
 add_action('after_setup_theme', __NAMESPACE__ . '\setup');
