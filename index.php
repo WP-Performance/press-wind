@@ -24,7 +24,7 @@ get_header();
     /* Start the Loop */
     while (have_posts()) :
       the_post();
-      if (!is_home()) :
+      if (!is_home() && !is_front_page()) :
   ?>
         <h1><?php the_title(); ?></h1>
     <?php

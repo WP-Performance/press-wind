@@ -74,3 +74,12 @@ a {
 .site-footer > p > a {
   @apply inline-flex after:content-[''] after:ml-2 after:block after:bg-wp-performance after:bg-contain after:bg-no-repeat after:w-5 after:h-5 after:mt-1;
 }
+
+/** pattern example */
+.pattern-example {
+  @apply py-10 px-3 lg:p-10;
+}
+
+.pattern-example > p {
+  @apply max-w-2xl mx-4 lg:mx-auto my-8;
+}

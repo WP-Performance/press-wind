@@ -311,9 +311,19 @@
     display: block
 }
 
+.flex {
+
+    display: flex
+}
+
 .table {
 
     display: table
+}
+
+.grid {
+
+    display: grid
 }
 
 .transform {
@@ -328,6 +338,11 @@
     text-overflow: ellipsis;
 
     white-space: nowrap
+}
+
+.border {
+
+    border-width: 1px
 }
 
 .uppercase {

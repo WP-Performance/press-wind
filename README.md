@@ -2,6 +2,13 @@
 
 WordPress Theme base with Tailwind CSS and Vite JS.
 
+## Concept
+
+This theme is build for work with gutenberg.
+Is thinked for use concept of pattern.
+A example of pattern is in ```patterns``` directory.
+
+
 ## Dependencies
 
 - [PostCSS](https://postcss.org/)
@@ -52,3 +59,18 @@ yarn build
 
 The script and the style are automatically enqueued in theme.
 The "assets" code is in file : ```inc > assets.php```
+
+
+## CSS writing style
+
+You must use ```@apply``` method for create the CSS style
+It's better for reusability of your code and the readability.
+
+Example :
+```
+.site-header {
+  @apply flex my-4 lg:my-10 lg:items-center lg:flex-row flex-col;
+}
+```
+
+**But you can use the method by the class attribute, if you prefer. Be careful to keep maintainable project.**
