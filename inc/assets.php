@@ -90,12 +90,14 @@ function addScript()
     // get files name list from manifest
     $config = namespace\getManifest();
     // search legacy file in manifest for load in first
-    $legacy = $config->{"vite/legacy-polyfills"}->file;
+    // for vite 3 change with vite/legacy-polyfills-legacy
+    $legacy = $config->{"-legacy"}->file;
     $k = explode('.', $legacy);
     $token = $k[1];
     wp_enqueue_script('press-wind-theme-' . $token, $path . '/dist/' . $legacy, array(), $token, true);
     // delete key legacy-polyfills
-    unset($config->{"vite/legacy-polyfills"});
+    // for vite 3 change with vite/legacy-polyfills-legacy
+    unset($config->{"-legacy"});
 
     if (!$config) return;
     // load others files

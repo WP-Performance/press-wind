@@ -23,6 +23,14 @@ Install dependencies
 yarn
 ```
 
+In your ```wp-config.php``` file, add :
+```
+# for dev
+define('WP_ENV', 'development');
+# for production
+define('WP_ENV', 'production');
+```
+
 ## Script
 
 Launch dev mode
@@ -39,3 +47,8 @@ Build the assets
 ```
 yarn build
 ```
+
+## Enqueue Scripts and Styles
+
+The script and the style are automatically enqueued in theme.
+The "assets" code is in file : ```inc > assets.php```
