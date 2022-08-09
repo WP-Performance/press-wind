@@ -20,62 +20,6 @@ function getManifest()
 }
 
 
-function strpos_arr($haystack, $needle)
-{
-  if (!is_array($needle)) $needle = array($needle);
-  foreach ($needle as $what) {
-    if (($pos = strpos($haystack, $what)) !== false) return $pos;
-  }
-  return false;
-}
-
-
-/**
- * preload files
- */
-function addPreload()
-{
-  $preloadAssets = array(
-    'main.'
-  );
-  $config = namespace\getManifest();
-  $files = get_object_vars($config);
-  $save = [];
-  foreach ($files as $key => $value) {
-    if (property_exists($config->{$key}, 'assets') || property_exists($config->{$key}, 'css') || property_exists($config->{$key}, 'file')) {
-      $assets = $config->{$key}->assets ?? [];
-      $css = $config->{$key}->css ?? [];
-      $file = $config->{$key}->file ? array($config->{$key}->file) : [];
-      $assets = array_merge($assets, $css, $file);
-      $path = get_template_directory_uri();
-      foreach ($assets as $asset) {
-        $path_parts = pathinfo($asset);
-        if (!in_array($asset, $save) && strpos_arr($asset, $preloadAssets) !== false) {
-          $as = 'image';
-          if ($path_parts['extension'] === 'woff2' || $path_parts['extension'] === 'woff') {
-            $as = 'font';
-          }
-          if ($path_parts['extension'] === 'css') {
-            $as = 'style';
-          }
-          if ($path_parts['extension'] === 'js') {
-            $as = 'script';
-          }
-          add_action(
-            'wp_head',
-            function () use ($path, $asset, $as) {
-              echo '<link rel="preload" href="' . $path . '/dist/' . $asset . '" as="' . $as . '" crossorigin="anonymous" />';
-            },
-            2
-          );
-          array_push($save, $asset);
-        }
-      }
-    }
-  }
-}
-
-
 /**
  * Enqueue scripts.
  *
