@@ -7,6 +7,7 @@ if (!defined('WP_ENV')) {
 }
 
 require_once dirname(__FILE__) . '/inc/assets.php';
+require_once dirname(__FILE__) . '/inc/disable.php';
 require_once dirname(__FILE__) . '/inc/gutenberg/index.php';
 
 /**

@@ -1,6 +1,6 @@
 # Press Wind
 
-WordPress Theme base with Tailwind CSS and Vite JS.
+Minimal boilerplate theme for WordPress with Tailwind CSS and Vite JS.
 
 ## Concept
 
@@ -14,6 +14,7 @@ The fonts pass by the new WP font loader. Not by CSS or TailwindCSS.
 
 This theme has just the minimal php file.
 With gutenberg blocks, it's normally sufficient
+
 
 ## Dependencies
 
@@ -82,6 +83,12 @@ Example :
 ```
 
 **But you can use the method by the class attribute, if you prefer. Be careful to keep maintainable project.**
+
+## Disabled core functionnality
+
+In ```inc > disable.php```, lots of feature are disabled.
+You can comment for not disable stuff for your project like you want.
+
 
 ## Screenshot
 
