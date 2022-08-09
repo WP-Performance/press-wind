@@ -84,7 +84,7 @@ Example :
 
 **But you can use the method by the class attribute, if you prefer. Be careful to keep maintainable project.**
 
-## Disabled core functionnality
+## Disabled WP core functionality
 
 In ```inc > disable.php```, lots of feature are disabled.
 You can comment for not disable stuff for your project like you want.
