@@ -8,7 +8,7 @@ a {
 
 /** header **/
 .site-header {
-  @apply flex my-4 lg:my-10 lg:items-center lg:flex-row flex-col;
+  @apply flex flex-col my-4 xl:m-auto xl:max-w-screen-2xl lg:my-10 lg:items-center lg:flex-row;
 }
 
 .site-branding {
@@ -20,7 +20,7 @@ a {
 }
 
 .site-title {
-  @apply font-display text-5xl m-0;
+  @apply m-0 text-5xl font-display;
 }
 
 .site-title a {
@@ -33,41 +33,41 @@ a {
 
 /** navigation **/
 .main-navigation {
-  @apply mx-6 lg:mx-10 my-3;
+  @apply mx-6 my-3 lg:mx-10;
 }
 
 .main-navigation > ul,
 .main-navigation ul > li {
-  @apply list-none m-0 p-0;
+  @apply p-0 m-0 list-none;
 }
 
 .main-navigation ul {
-  @apply lg:flex m-0 p-0;
+  @apply p-0 m-0 lg:flex;
 }
 
 .main-navigation ul > li {
-  @apply lg:mx-5 p-0;
+  @apply p-0 lg:mx-5;
 }
 
 .main-navigation ul > li > ul {
-  @apply ml-3 pl-3;
+  @apply pl-3 ml-3;
 }
 
 .main-navigation ul > li > ul > li {
-  @apply list-disc mx-0 p-0;
+  @apply p-0 mx-0 list-disc;
 }
 
 /** main **/
 .site-main {
-  @apply max-w-screen-xl mx-6 xl:mx-auto min-h-[60vh] grid xl:grid-cols-main;
+  @apply xl:max-w-screen-xl max-w-[100%] mx-0 xl:mx-auto min-h-[60vh] grid grid-cols-main-small xl:grid-cols-main;
 }
 
 .site-main .main-content {
-  @apply xl:col-start-2 xl:col-end-3;
+  @apply col-start-2 col-end-3;
 }
 
 .site-main .main-content .alignwide {
-  @apply xl:-ml-32 xl:-mr-32;
+  @apply -ml-1 -mr-1 xl:-ml-32 xl:-mr-32;
 }
 
 .site-main p {
@@ -76,7 +76,7 @@ a {
 
 /** footer */
 .site-footer {
-  @apply text-center mt-20;
+  @apply mt-20 text-center;
 }
 
 .site-footer > p > a {
@@ -85,9 +85,14 @@ a {
 
 /** pattern example */
 .pattern-example {
-  @apply py-10 px-3 lg:p-10;
+  @apply px-3 py-10 lg:p-10;
 }
 
 .pattern-example > p {
-  @apply max-w-2xl mx-4 lg:mx-auto my-8;
+  @apply max-w-2xl mx-4 my-8 lg:mx-auto;
+}
+
+/** prism */
+.wp-block-wp-performance-prism-my-code {
+  @apply max-w-[calc(100vw-2rem)];
 }

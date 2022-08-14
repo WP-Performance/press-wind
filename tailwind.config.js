@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         main: '8rem 1fr 8rem',
+        'main-small': '1rem 1fr 1rem',
       },
       backgroundImage: (theme) => ({
         'wp-performance': "url('/assets/media/wp-performance.png')",
