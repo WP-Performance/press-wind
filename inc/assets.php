@@ -55,8 +55,9 @@ function addScript()
       // all file except legacy
       if (strpos($file, 'polyfills') === false && strpos($file, 'legacy') === false) {
         $sc[] = $f;
-        // main legacy after polyfill
-      } else if (strpos($file, 'legacy') !== false && $legacyIsIn === true) {
+        // main legacy after polyfill if already in $sc
+      } else if (strpos($file, 'legacy') !== false && strpos($file, 'polyfills') === false && $legacyIsIn === true) {
+        echo 'legacy';
         // split array into two parts
         $split1 = array_slice($sc, 0, 1, true);
         $split2 = array_slice($sc, 1, null, true);
@@ -64,6 +65,7 @@ function addScript()
         $sc = array_merge($split1, [1 => $f], $split2);
         // polyfill in first
       } else {
+        echo 'poly';
         $legacyIsIn = true;
         array_unshift($sc, $f);
       }
