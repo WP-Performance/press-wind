@@ -23,6 +23,8 @@ function unregister_category()
 {
   unregister_block_pattern_category('buttons');
   unregister_block_pattern_category('query');
+  unregister_block_pattern_category('header');
+  unregister_block_pattern_category('footer');
 }
 
 add_action('init', __NAMESPACE__ . '\unregister_category');
