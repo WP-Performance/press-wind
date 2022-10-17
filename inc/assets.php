@@ -44,12 +44,32 @@ function addScript()
     if (!$config) return;
     // load others files
     $files = get_object_vars($config);
+    $sc = [];
+    $legacyIsIn = false;
     foreach ($files as $key => $value) {
       if (property_exists($value, 'isEntry') === false) continue;
       $file = $value->file;
       // get token file
       $token = getTokenName($file);
-      wp_enqueue_script('press-wind-theme-' . $token, $path . '/dist/' . $file, array(), $token, true);
+      $f = ['token' => $token, 'file' => $file];
+      // all file except legacy
+      if (strpos($file, 'polyfills') === false && strpos($file, 'legacy') === false) {
+        $sc[] = $f;
+        // main legacy after polyfill
+      } else if (strpos($file, 'legacy') !== false && $legacyIsIn === true) {
+        // split array into two parts
+        $split1 = array_slice($sc, 0, 1, true);
+        $split2 = array_slice($sc, 1, null, true);
+        // add new array element at between two parts
+        $sc = array_merge($split1, [1 => $f], $split2);
+        // polyfill in first
+      } else {
+        $legacyIsIn = true;
+        array_unshift($sc, $f);
+      }
+    }
+    foreach ($sc as $key => $value) {
+      wp_enqueue_script('press-wind-theme-' . $value['token'], $path . '/dist/' . $value['file'], array(), $value['token'], true);
     }
   } else {
     // development
