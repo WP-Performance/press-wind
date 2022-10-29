@@ -10,6 +10,12 @@ require_once dirname(__FILE__) . '/inc/assets.php';
 require_once dirname(__FILE__) . '/inc/disable.php';
 require_once dirname(__FILE__) . '/inc/gutenberg/index.php';
 
+// pwa icons
+if (file_exists(dirname(__FILE__) . '/inc/pwa_head.php')) {
+  include dirname(__FILE__) . '/inc/pwa_head.php';
+}
+
+
 /**
  * Theme setup.
  */
