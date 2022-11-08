@@ -9,7 +9,7 @@ import { dirname } from 'path'
  */
 const getconfig = () => {
   return new Promise((resolve, reject) => {
-    execPhp('./config/index.php', (err, php, out) => {
+    execPhp('./inc/index.php', (err, php, out) => {
       if (err) {
         reject(err)
       }
@@ -27,7 +27,7 @@ export function getThemDir() {
 }
 
 const config = await getconfig()
-
+console.log(config)
 // logo source
 const source = config.source
 // directory for build
