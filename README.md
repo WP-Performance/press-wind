@@ -64,6 +64,14 @@ Build the assets
 yarn build
 ```
 
+Generate favicon
+
+Add values in ```config/global.php``` file and run :
+
+```
+yarn favicon
+```
+
 ## Enqueue Scripts and Styles
 
 The script and the style are automatically enqueued in theme.
