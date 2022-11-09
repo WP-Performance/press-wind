@@ -2,7 +2,7 @@
 
 return [
   // directory target for assets generated
-  'iconsDir' => 'mydirectory',
+  // 'iconsDir' => 'public',
   // 'appName' => 'PressWind',
   // 'appShortName' => 'PressWind',
   // 'appDescription' => 'Starter theme WordPress, Tailwind, ViteJS',

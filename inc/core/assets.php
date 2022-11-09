@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\assets;
+namespace PressWind\inc\core\assets;
 
 function getTokenName($key)
 {
@@ -20,7 +20,7 @@ function getTokenName($key)
  */
 function getManifest()
 {
-  $strJsonFileContents = file_get_contents(dirname(__FILE__) . "/../dist/manifest.json");
+  $strJsonFileContents = file_get_contents(dirname(__FILE__) . "/../../dist/manifest.json");
   return json_decode(str_replace(
     '\u0000',
     '',
