@@ -12,7 +12,7 @@ require_once dirname(__FILE__) . '/inc/core/assets.php';
 
 // inc
 require_once dirname(__FILE__) . '/inc/disable.php';
-require_once dirname(__FILE__) . '/inc/gutenberg/index.php';
+require_once dirname(__FILE__) . '/inc/gutenberg.php';
 
 // pwa icons
 if (file_exists(dirname(__FILE__) . '/inc/pwa_head.php')) {
