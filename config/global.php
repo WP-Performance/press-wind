@@ -1,6 +1,8 @@
 <?php
 
 return [
+  // directory target for assets generated
+  'iconsDir' => 'mydirectory',
   // 'appName' => 'PressWind',
   // 'appShortName' => 'PressWind',
   // 'appDescription' => 'Starter theme WordPress, Tailwind, ViteJS',

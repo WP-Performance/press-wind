@@ -9,7 +9,7 @@ import { dirname } from 'path'
  */
 const getconfig = () => {
   return new Promise((resolve, reject) => {
-    execPhp('./inc/index.php', (err, php, out) => {
+    execPhp('./inc/core/index.php', (err, php, out) => {
       if (err) {
         reject(err)
       }
@@ -27,11 +27,12 @@ export function getThemDir() {
 }
 
 const config = await getconfig()
-console.log(config)
+// directory target for assets generated
+const iconDir = config.iconsDir || 'public'
 // logo source
 const source = config.source
 // directory for build
-const target = './icons/dist/'
+const target = `./${iconDir}/`
 // php file to include to head
 const phpHead = './inc/pwa_head.php'
 // tag filter to remove
@@ -42,7 +43,7 @@ const removeList = [
 ]
 
 const configuration = {
-  path: `/wp-content/themes/${getThemDir()}/icons/dist`,
+  path: `/wp-content/themes/${getThemDir()}/${iconDir}`,
   appName: config.appName,
   appShortName: config.appShortName,
   appDescription: config.appDescription,
