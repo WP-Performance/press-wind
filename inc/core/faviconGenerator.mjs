@@ -44,12 +44,12 @@ const removeList = [
 
 const configuration = {
   path: `/wp-content/themes/${getThemDir()}/${iconDir}`,
-  appName: config.appName,
-  appShortName: config.appShortName,
-  appDescription: config.appDescription,
-  background: config.background,
-  theme_color: config.theme_color,
-  lang: config.lang,
+  appName: config.manifest.appName,
+  appShortName: config.manifest.appShortName,
+  appDescription: config.manifest.appDescription,
+  background: config.manifest.background,
+  theme_color: config.manifest.theme_color,
+  lang: config.manifest.lang,
   appleStatusBarStyle: 'default', // Style for Apple status bar: "black-translucent", "default", "black". `string`
   display: 'standalone', // Preferred display mode: "fullscreen", "standalone", "minimal-ui". `string`
   orientation: 'any', // Default orientation: "any", "natural", "portrait" or "landscape". `string`
