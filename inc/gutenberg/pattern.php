@@ -13,6 +13,9 @@ add_action(
 
     // or remove the theme support for the core-block-patterns
     remove_theme_support('core-block-patterns');
+
+    // remove remote patterns
+    add_filter('should_load_remote_block_patterns', '__return_false');
   }
 );
 
@@ -21,10 +24,10 @@ add_action(
  */
 function unregister_category()
 {
-  unregister_block_pattern_category('buttons');
-  unregister_block_pattern_category('query');
-  unregister_block_pattern_category('header');
-  unregister_block_pattern_category('footer');
+  // unregister_block_pattern_category('buttons');
+  // unregister_block_pattern_category('query');
+  // unregister_block_pattern_category('header');
+  // unregister_block_pattern_category('footer');
 }
 
-add_action('init', __NAMESPACE__ . '\unregister_category');
+// add_action('init', __NAMESPACE__ . '\unregister_category');

@@ -9,7 +9,7 @@
     "build": "APP_ENV=production vite build && yarn build:editor",
     "watch:editor": "APP_ENV=development IS_EDITOR=true node_modules/.bin/postcss -w --verbose --no-map assets/css/editor.css -o style-editor.css",
     "build:editor": "NODE_ENV=production IS_EDITOR=true node_modules/.bin/postcss assets/css/editor.css -o style-editor.css",
-    "favicon": "node ./icons/faviconGenerator.mjs"
+    "favicon": "node ./inc/core/faviconGenerator.mjs"
   },
   "author": "Faramaz Patrick<info@goodmotion.fr>",
   "license": "ISC",

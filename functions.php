@@ -6,7 +6,11 @@ if (!defined('WP_ENV')) {
   define('WP_ENV', 'development');
 }
 
-require_once dirname(__FILE__) . '/inc/assets.php';
+// core
+require_once dirname(__FILE__) . '/inc/core/disable/index.php';
+require_once dirname(__FILE__) . '/inc/core/assets.php';
+
+// inc
 require_once dirname(__FILE__) . '/inc/disable.php';
 require_once dirname(__FILE__) . '/inc/gutenberg/index.php';
 
