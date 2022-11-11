@@ -71,7 +71,7 @@ In the root of press-wind theme
 
 Install dependencies
 ```
-yarn
+npm i
 ```
 
 In your ```wp-config.php``` file, add :
@@ -88,17 +88,12 @@ define('WP_ENV', 'production');
 
 Launch dev mode
 ```
-yarn dev
-```
-
-Launch dev mode with editor file for admin
-```
-yarn dev:editor
+npm run dev
 ```
 
 Build the assets
 ```
-yarn build
+npm run build
 ```
 
 Generate favicon
@@ -106,7 +101,7 @@ Generate favicon
 Add values in ```config/global.php``` file and run :
 
 ```
-yarn favicon
+npm run favicon
 ```
 
 ## Enqueue Scripts and Styles
