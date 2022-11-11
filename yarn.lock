@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@_tw/themejson@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@_tw/themejson/-/themejson-0.1.2.tgz#772c2e615aa6ca37171b46aac3e95401c10a9a10"
+  integrity sha512-tPenPQcRncoYJdr3CmawxE0XvMCJO+0tUcxA+MiP9vWm2NZF3OkPa5IrWp0KFmDGkzdDe3Gm0ezRR48NXNB1eg==
+
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"

@@ -20,5 +20,5 @@ module.exports = {
       }),
     },
   },
-  plugins: [],
+  plugins: [require('@_tw/themejson')(require('./theme.json'))],
 }
