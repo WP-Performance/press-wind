@@ -3,7 +3,7 @@ module.exports = {
   corePlugins: {
     preflight: false,
   },
-  content: ['./**/*.{php,twig,html}', './assets/*.{js,jsx,ts,tsx,vue}'],
+  content: ['./**/*.{php,twig,html,json}', './assets/*.{js,jsx,ts,tsx,vue}'],
   safelist: [],
   theme: {
     fontFamily: {
