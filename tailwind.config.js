@@ -1,7 +1,9 @@
+const usePreflightFront = false
+
 module.exports = {
   // use preflight (reset CSS) override fonts size from theme.json
   corePlugins: {
-    preflight: false,
+    preflight: process.env.IS_EDITOR ? false : usePreflightFront,
   },
   content: ['./**/*.{php,twig,html,json}', './assets/*.{js,jsx,ts,tsx,vue}'],
   safelist: [],
