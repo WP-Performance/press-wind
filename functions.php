@@ -48,10 +48,10 @@ function setup()
   //   'audio',
   // ]);
 
-  register_nav_menus(array(
-    'primary'   => __('Primary Menu', 'press-wind'),
-    // 'secondary' => __('Secondary Menu', 'press-wind')
-  ));
+  // register_nav_menus(array(
+  // 'primary'   => __('Primary Menu', 'press-wind'),
+  // 'secondary' => __('Secondary Menu', 'press-wind')
+  // ));
 
 
   load_theme_textdomain('press-wind', get_template_directory() . '/languages');
