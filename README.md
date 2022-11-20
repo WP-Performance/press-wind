@@ -2,6 +2,8 @@
 
 Minimal boilerplate theme for WordPress with Tailwind CSS and Vite JS.
 
+## 👉 [Complete documentation here](https://presswind-doc.wp-performance.com/)
+
 ## Concept
 
 This theme is build for work with gutenberg.
