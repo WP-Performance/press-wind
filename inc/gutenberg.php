@@ -18,9 +18,6 @@ function setup()
   // responsive embed
   add_theme_support('responsive-embeds');
 
-  // remove template support
-  remove_theme_support('block-templates');
-
 
   /** PATTERNS SECTION */
 
