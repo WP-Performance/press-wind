@@ -4,6 +4,8 @@ Minimal starter theme for WordPress with Tailwind CSS and Vite JS for Full Site 
 
 ## 👉 [Complete documentation here](https://presswind-doc.wp-performance.com/)
 
+## 👉 [FSE Version on this branch](https://github.com/WP-Performance/press-wind/tree/FSE)
+
 ## Concept
 
 This theme is build for work with gutenberg.
@@ -26,6 +28,45 @@ This theme is developed for use Full Site Editing.
 
 - Node JS (16)
 - Npm ou yarn
+
+
+## config global
+
+default values
+```
+return [
+  // directory target for assets generated
+  'iconsDir' => 'public',
+  // logo source for generate icons
+  // 'source' => './assets/media/icon.svg',
+  // 'manifest' => [
+  //   'appName' => 'PressWind',
+  //   'appShortName' => 'PressWind',
+  //   'appDescription' => 'Starter theme WordPress, Tailwind, ViteJS',
+  //   'background' => '#fff',
+  //   'theme_color' => 'rgb(190, 24, 93)',
+  //   'lang' => 'fr-FR',
+  // ],
+  // 'disable' => [
+  //   // disable rss links
+  //   'rss' => true,
+  //   // remove all comments views
+  //   'comment' => true,
+  //   // disable emojis
+  //   'emoji' => true,
+  //   // media page
+  //   'media' => true,
+  //   // disable oembed
+  //   'oembed' => true,
+  //   // disable xmlrpc
+  //   'xmlrpc' => true,
+  //   // disble rest user endpoint
+  //   'rest_user' => true
+  //   // disable jquery
+  //   'jquery' => false
+  // ]
+];
+```
 
 ## Quick Start
 
