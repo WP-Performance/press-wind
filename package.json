@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "cross-env APP_ENV=development vite & npm run watch:editor",
     "build": "APP_ENV=production vite build && npm run build:editor",
+    "dev:admin": "cross-env APP_ENV=development vite --config admin/vite.config.js",
+    "build:admin": "APP_ENV=production vite build --config admin/vite.config.js",
     "watch:editor": "APP_ENV=development IS_EDITOR=true node_modules/.bin/postcss -w --verbose --no-map assets/css/editor.css -o style-editor.css",
     "build:editor": "NODE_ENV=production IS_EDITOR=true node_modules/.bin/postcss assets/css/editor.css -o style-editor.css",
     "favicon": "node ./inc/core/faviconGenerator.mjs"

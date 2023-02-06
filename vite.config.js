@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import liveReload from 'vite-plugin-live-reload'
-import getThemDir from './helpers/getThemeDir.js'
+import getThemeDir from './helpers/getThemeDir.js'
 
 // https://vitejs.dev/config/
 export const viteConfig = {
@@ -21,8 +21,8 @@ export const viteConfig = {
   ],
   base:
     process.env.APP_ENV === 'development'
-      ? `/wp-content/themes/${getThemDir()}/`
-      : `/wp-content/themes/${getThemDir()}/dist/`,
+      ? `/wp-content/themes/${getThemeDir()}/`
+      : `/wp-content/themes/${getThemeDir()}/dist/`,
   root: '',
   build: {
     // output dir for production build
