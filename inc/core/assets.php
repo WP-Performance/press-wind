@@ -2,8 +2,9 @@
 
 namespace PressWind\inc\core;
 
+
+require_once(dirname(__FILE__) . '/helpers/orderManifest.php');
 require_once(dirname(__FILE__) . '/helpers/getManifest.php');
-require_once(dirname(__FILE__) . '/helpers/getTokenName.php');
 
 /**
  * Enqueue scripts.
@@ -21,36 +22,11 @@ function add_script()
     if (!$config) return;
     // load others files
     $files = get_object_vars($config);
-    $sc = [];
-    $legacyIsIn = false;
-    foreach ($files as $key => $value) {
-      // don't include asset file like image, etc..
-      if (property_exists($value, 'isEntry') === false) continue;
-      // get file path ("file": "assets/main-legacy-b1d19aa8.js")
-      $file = $value->file;
-      // get token file from name
-      $token = helpers\getTokenName($file);
-      $f = ['token' => $token, 'file' => $file];
-      // all files except legacy or polyfills
-      if (strpos($file, 'polyfills') === false && strpos($file, 'legacy') === false) {
-        $sc[] = $f;
-        // insert main legacy after polyfill if already in $sc
-      } else if (strpos($file, 'legacy') !== false && strpos($file, 'polyfills') === false && $legacyIsIn === true) {
-        // split array into two parts
-        $split1 = array_slice($sc, 0, 1, true);
-        $split2 = array_slice($sc, 1, null, true);
-        // add new array element at between two parts
-        $sc = array_merge($split1, [1 => $f], $split2);
-        // polyfill in first
-      } else {
-        $legacyIsIn = true;
-        array_unshift($sc, $f);
-      }
-    }
-
+    // order files
+    $ordered = helpers\orderManifest($files);
     // loop for enqueue script
-    foreach ($sc as $key => $value) {
-      wp_enqueue_script('press-wind-theme-' . $value['token'], $path . '/dist/' . $value['file'], array(), $value['token'], true);
+    foreach ($ordered as $key => $value) {
+      wp_enqueue_script('press-wind-theme-' . $key, $path . '/dist/' . $value->file, array(), $key, true);
     }
   } else {
     // development
@@ -95,20 +71,20 @@ function enqueue_styles()
         $config = helpers\getManifest();
         if (!$config) return;
         $files = get_object_vars($config);
+        // order files
+        $ordered = helpers\orderManifest($files);
         // search css key
-        foreach ($files as $key => $value) {
+        foreach ($ordered as $key => $value) {
           // only entry and css
-          if (property_exists($value, 'isEntry') === false || property_exists($value, 'css') === false) continue;
+          if (property_exists($value, 'css') === false) continue;
           $css = $value->css;
           // $css is array
           foreach ($css as $file) {
-            // get token file
-            $token = helpers\getTokenName($file);
             wp_enqueue_style(
-              'press-wind-theme-' . $token,
+              'press-wind-theme-' . $key,
               $path . '/dist/' . $file,
               array(),
-              $token,
+              $key,
               'all'
             );
           }

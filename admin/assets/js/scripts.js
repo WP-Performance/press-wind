@@ -17,11 +17,11 @@ wp.domReady(() => {
   window._wpLoadBlockEditor.then(() => {
     console.log('Gutenberg ready !')
     // remove styles
-    // wp.blocks.unregisterBlockStyle('core/button', [
-    //   'default',
-    //   'fill',
-    //   'outline',
-    // ])
-    // wp.blocks.unregisterBlockStyle('core/image', ['rounded'])
+    wp.blocks.unregisterBlockStyle('core/button', [
+      'default',
+      'fill',
+      'outline',
+    ])
+    wp.blocks.unregisterBlockStyle('core/image', ['rounded'])
   })
 })
