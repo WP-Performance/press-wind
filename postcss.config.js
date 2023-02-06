@@ -1,16 +1,11 @@
-const { resolve, sep } = require('path')
+const getThemDir = require('./inc/js-helpers/getThemeDir.js')
+
 const url = require('postcss-url')
 const plug = [
   require('postcss-import'),
   require('tailwindcss'),
   require('autoprefixer'),
 ]
-
-// find theme dir name
-function getThemDir() {
-  const _path = process.cwd().split(sep)
-  return _path[_path.length - 1]
-}
 
 // only for editor css
 if (process.env.IS_EDITOR) {

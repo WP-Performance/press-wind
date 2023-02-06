@@ -6,15 +6,14 @@ if (!defined('WP_ENV')) {
   define('WP_ENV', 'development');
 }
 
-// core
-require_once dirname(__FILE__) . '/inc/core/disable/index.php';
-require_once dirname(__FILE__) . '/inc/core/assets.php';
+// include core files (don't touch this files !)
+require_once dirname(__FILE__) . '/inc/core/core.php';
 
-// inc
+// inc, you can modify this files like you want
 require_once dirname(__FILE__) . '/inc/disable.php';
 require_once dirname(__FILE__) . '/inc/gutenberg.php';
 
-// pwa icons
+// pwa icons injected in head
 if (file_exists(dirname(__FILE__) . '/inc/pwa_head.php')) {
   include dirname(__FILE__) . '/inc/pwa_head.php';
 }
