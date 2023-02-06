@@ -1,11 +1,14 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import react from '@vitejs/plugin-react'
 import viteConfig from '../vite.config'
-import getThemeDir from '../helpers/getThemeDir.js'
+import getThemeDir from '../inc/js-helpers/getThemeDir.js'
 
 const viteAdminConfig = {
   ...viteConfig,
   ...{
+    // add react for use jsx and extends gutenberg blocks :)
+    plugins: [...viteConfig.plugins, react()],
     base:
       process.env.APP_ENV === 'development'
         ? `/wp-content/themes/${getThemeDir()}/admin/`

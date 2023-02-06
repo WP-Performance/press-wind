@@ -1,4 +1,4 @@
-const getThemDir = require('./helpers/getThemeDir.js')
+const getThemDir = require('./inc/js-helpers/getThemeDir.js')
 
 const url = require('postcss-url')
 const plug = [

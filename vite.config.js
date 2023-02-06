@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import liveReload from 'vite-plugin-live-reload'
-import getThemeDir from './helpers/getThemeDir.js'
+import getThemeDir from './inc/js-helpers/getThemeDir.js'
 
 // https://vitejs.dev/config/
 export const viteConfig = {
