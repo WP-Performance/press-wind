@@ -1,0 +1,13 @@
+{
+    "name": "patrickfaramaz/press-wind",
+    "description": "starter theme WordPress with Vite.js and Tailwind",
+    "authors": [
+        {
+            "name": "ipatate",
+            "email": "faramazpat@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    }
+}

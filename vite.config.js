@@ -1,16 +1,11 @@
-import { resolve, sep } from 'path'
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import liveReload from 'vite-plugin-live-reload'
-
-// find theme dir name
-export function getThemDir() {
-  const _path = process.cwd().split(sep)
-  return _path[_path.length - 1]
-}
+import getThemeDir from './inc/js-helpers/getThemeDir.js'
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export const viteConfig = {
   plugins: [
     liveReload([
       __dirname + '/**/*.php',
@@ -26,8 +21,8 @@ export default defineConfig({
   ],
   base:
     process.env.APP_ENV === 'development'
-      ? `/wp-content/themes/${getThemDir()}/`
-      : `/wp-content/themes/${getThemDir()}/dist/`,
+      ? `/wp-content/themes/${getThemeDir()}/`
+      : `/wp-content/themes/${getThemeDir()}/dist/`,
   root: '',
   build: {
     // output dir for production build
@@ -51,4 +46,6 @@ export default defineConfig({
       // host: 'localhost',
     },
   },
-})
+}
+
+export default defineConfig(viteConfig)
