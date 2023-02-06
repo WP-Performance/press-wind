@@ -10,6 +10,7 @@ if (!defined('WP_ENV')) {
 require_once dirname(__FILE__) . '/inc/core/disable/index.php';
 require_once dirname(__FILE__) . '/inc/core/assets.php';
 require_once dirname(__FILE__) . '/inc/core/admin-assets.php';
+require_once dirname(__FILE__) . '/inc/core/login-assets.php';
 
 // inc
 require_once dirname(__FILE__) . '/inc/disable.php';

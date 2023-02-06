@@ -83,6 +83,7 @@ function enqueue_scripts()
  */
 function enqueue_styles()
 {
+  if (!file_exists(dirname(__FILE__) . '/../../dist/manifest.json')) return;
   add_action(
     'wp_enqueue_scripts',
     function () {

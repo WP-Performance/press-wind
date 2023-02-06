@@ -83,6 +83,7 @@ function enqueue_admin_scripts()
  */
 function enqueue_admin_styles()
 {
+  if (!file_exists(dirname(__FILE__) . '/../../admin/dist/manifest.json')) return;
   add_action(
     'admin_enqueue_scripts',
     function () {
