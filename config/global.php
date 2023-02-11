@@ -12,6 +12,20 @@ return [
   //   'background' => '#fff',
   //   'theme_color' => 'rgb(190, 24, 93)',
   //   'lang' => 'fr-FR',
+  // see settings https://www.npmjs.com/package/favicons#usage
+  // 'preferRelatedApplications' => false,
+  // 'pixel_art' => false,
+  // 'loadManifestWithCredentials' => false,
+  // 'manifestMaskable' => false,
+  // 'icons' => [
+  //   'favicons' => true,
+  //   'android' => true,
+  //   'appleIcon' => true,
+  //   'appleStartup' => false,
+  //   'coast' => false,
+  //   'yandex' => false,
+  //   'windows' => false,
+  // ],
   // ],
   // 'disable' => [
   //   // disable rss links
