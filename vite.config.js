@@ -6,6 +6,7 @@ import getThemeDir from './inc/js-helpers/getThemeDir.js'
 
 // https://vitejs.dev/config/
 export const viteConfig = {
+  cacheDir: './node_modules/.vite/press-wind',
   plugins: [
     liveReload([
       __dirname + '/**/*.php',
@@ -13,7 +14,7 @@ export const viteConfig = {
     ]),
     legacy({
       // target is default
-      // targets: ['defaults', 'ie >= 11'],
+      targets: ['defaults', 'ie >= 11'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
       polyfills: [],
       modernPolyfills: [],

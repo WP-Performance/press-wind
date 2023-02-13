@@ -7,6 +7,8 @@ import getThemeDir from '../inc/js-helpers/getThemeDir.js'
 const viteAdminConfig = {
   ...viteConfig,
   ...{
+    publicDir: false,
+    cacheDir: './node_modules/.vite/press-wind-admin',
     // add react for use jsx and extends gutenberg blocks :)
     plugins: [...viteConfig.plugins, react()],
     base:
