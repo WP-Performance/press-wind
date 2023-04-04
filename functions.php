@@ -9,6 +9,9 @@ if (!defined('WP_ENV')) {
 // include core files (don't touch this files !)
 require_once dirname(__FILE__) . '/inc/core/core.php';
 
+// options page
+require_once dirname(__FILE__) . '/options/options_page.php';
+
 // inc, you can modify this files like you want
 require_once dirname(__FILE__) . '/inc/disable.php';
 require_once dirname(__FILE__) . '/inc/gutenberg.php';
