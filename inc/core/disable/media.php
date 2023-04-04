@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core\disable\media;
+namespace PressWind\Inc\Core\Disable\Media;
 
 require_once dirname(__FILE__) . '/../index.php';
 

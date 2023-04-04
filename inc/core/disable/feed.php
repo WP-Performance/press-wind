@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core\disable\feed;
+namespace PressWind\Inc\Core\Disable\Feed;
 
 require_once dirname(__FILE__) . '/../index.php';
 

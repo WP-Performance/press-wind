@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core\disable\comment;
+namespace PressWind\Inc\Core\Disable\Comment;
 
 require_once dirname(__FILE__) . '/../index.php';
 

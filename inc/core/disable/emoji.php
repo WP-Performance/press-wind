@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core\disable\emoji;
+namespace PressWind\Inc\Core\Disable\Emoji;
 
 require_once dirname(__FILE__) . '/../index.php';
 

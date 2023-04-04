@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core;
+namespace PressWind\Inc\Core;
 
 
 require_once(dirname(__FILE__) . '/helpers/orderManifest.php');
@@ -17,13 +17,13 @@ function add_script()
 
   if (WP_ENV !== 'development') {
     // get files name list from manifest
-    $config = helpers\getManifest();
+    $config = Helpers\getManifest();
 
     if (!$config) return;
     // load others files
     $files = get_object_vars($config);
     // order files
-    $ordered = helpers\orderManifest($files);
+    $ordered = Helpers\orderManifest($files);
     // loop for enqueue script
     foreach ($ordered as $key => $value) {
       wp_enqueue_script('press-wind-theme-' . $key, $path . '/dist/' . $value->file, array(), $key, true);
@@ -68,11 +68,11 @@ function enqueue_styles()
 
       if (WP_ENV !== 'development') {
         // get file name from manifest
-        $config = helpers\getManifest();
+        $config = Helpers\getManifest();
         if (!$config) return;
         $files = get_object_vars($config);
         // order files
-        $ordered = helpers\orderManifest($files);
+        $ordered = Helpers\orderManifest($files);
         // search css key
         foreach ($ordered as $key => $value) {
           // only entry and css

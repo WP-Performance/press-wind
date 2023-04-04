@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core\disable\RestUser;
+namespace PressWind\Inc\Core\Disable\RestUser;
 
 require_once dirname(__FILE__) . '/../index.php';
 

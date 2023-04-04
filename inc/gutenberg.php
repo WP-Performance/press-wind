@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\Gutenberg;
+namespace PressWind\Inc\Gutenberg;
 
 
 /**

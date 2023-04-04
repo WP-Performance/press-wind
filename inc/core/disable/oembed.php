@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core\disable\oembed;
+namespace PressWind\Inc\Core\Disable\Oembed;
 
 require_once dirname(__FILE__) . '/../index.php';
 

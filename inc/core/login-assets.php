@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core;
+namespace PressWind\Inc\Core;
 
 function login_assets()
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core\disable\jquery;
+namespace PressWind\Inc\Core\Disable\Jquery;
 
 require_once dirname(__FILE__) . '/../index.php';
 

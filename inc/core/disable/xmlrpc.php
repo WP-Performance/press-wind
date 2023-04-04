@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core\disable\xmlrpc;
+namespace PressWind\Inc\Core\Disable\Xmlrpc;
 
 require_once dirname(__FILE__) . '/../index.php';
 

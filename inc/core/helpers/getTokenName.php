@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core\helpers;
+namespace PressWind\Inc\Core\Helpers;
 
 
 function getTokenName($key)
