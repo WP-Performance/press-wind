@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
 import react from '@vitejs/plugin-react'
 import viteConfig from '../vite.config'
 import getThemeDir from '../inc/js-helpers/getThemeDir.js'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const viteAdminConfig = {
   ...viteConfig,
@@ -13,7 +16,7 @@ const viteAdminConfig = {
     plugins: [...viteConfig.plugins, react()],
     base:
       process.env.APP_ENV === 'development'
-        ? `/wp-content/themes/${getThemeDir()}/admin/`
+        ? `/wp-content/themes/${getThemeDir()}/`
         : `/wp-content/themes/${getThemeDir()}/admin/dist/`,
     build: {
       ...viteConfig.build,

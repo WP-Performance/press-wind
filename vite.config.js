@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import legacy from '@vitejs/plugin-legacy'
+// import legacy from '@vitejs/plugin-legacy'
 import liveReload from 'vite-plugin-live-reload'
 import getThemeDir from './inc/js-helpers/getThemeDir.js'
 
@@ -12,13 +12,13 @@ export const viteConfig = {
       __dirname + '/**/*.php',
       // __dirname + '/**/*.twig'
     ]),
-    legacy({
-      // target is default
-      targets: ['defaults', 'ie >= 11'],
-      additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
-      polyfills: [],
-      modernPolyfills: [],
-    }),
+    // legacy({
+    //   // target is default
+    //   targets: ['defaults', 'ie >= 11'],
+    //   additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
+    //   polyfills: [],
+    //   modernPolyfills: [],
+    // }),
   ],
   base:
     process.env.APP_ENV === 'development'

@@ -6,31 +6,58 @@ require_once(dirname(__FILE__) . '/helpers/getManifest.php');
 require_once(dirname(__FILE__) . '/helpers/getTokenName.php');
 
 /**
+ * get last segment in theme path
+ */
+function getLastPath($path)
+{
+  $public_path = get_template_directory_uri();
+  // last segment in public path
+  $last_segment = explode('/', $public_path);
+  $last_segment = end($last_segment);
+  // split path from last segment
+  $path = explode($last_segment, $path);
+  $path = count($path) > 0 ? $path[1] : '';
+  return $path;
+}
+
+/**
+ * get path from wp-content
+ */
+function getWPPath($path)
+{
+  // split path from wp-content
+  $_path_ = explode('wp-content', $path);
+  return count($_path_) > 0 ? $_path_[1] : '';
+}
+
+/**
  * Enqueue scripts.
  *
  */
-function add_admin_script()
+function add_admin_script($slug, $path)
 {
   // for theme
-  $path = get_template_directory_uri();
+  $public_path = get_template_directory_uri();
+  $dirPath = getLastPath($path);
 
   if (WP_ENV !== 'development') {
     // get files name list from manifest
-    $config = Helpers\getManifest('admin/dist/manifest.json');
+    $config = helpers\getManifest(substr($dirPath, 1) . '/dist/manifest.json');
 
     if (!$config) return;
     // load others files
     $files = get_object_vars($config);
     // order files
-    $ordered = Helpers\orderManifest($files);
+    $ordered = helpers\orderManifest($files);
 
     // loop for enqueue script
     foreach ($ordered as $key => $value) {
-      wp_enqueue_script('press-wind-theme-' . $key, $path . '/admin/dist/' . $value->file, ['wp-blocks', 'wp-dom'], $key, true);
+      wp_enqueue_script($slug . '-' . $key, $public_path . $dirPath . '/dist/' . $value->file, ['wp-blocks', 'wp-dom'], $key, true);
     }
   } else {
+
     // development
-    wp_enqueue_script('press-wind-theme', 'http://localhost:4444/admin/main.js', ['wp-blocks', 'wp-dom'], strtotime('now'), true);
+    wp_enqueue_script($slug, 'http://localhost:4444/wp-content' . getWPPath($path) . '/main.js', ['wp-blocks', 'wp-dom'], strtotime('now'), true);
   }
 }
 
@@ -38,11 +65,11 @@ function add_admin_script()
 /**
  * Register the JavaScript for the public-facing side of the site.
  */
-function enqueue_admin_scripts()
+function enqueue_admin_scripts($slug, $path)
 {
   // update script tag with module attribute
-  add_filter('script_loader_tag', function ($tag, $handle, $src) {
-    if (strpos($handle, 'press-wind-theme') === false) {
+  add_filter('script_loader_tag', function ($tag, $handle, $src) use ($slug) {
+    if (strpos($handle, $slug) === false) {
       return $tag;
     }
     // change the script tag by adding type="module" and return it.
@@ -50,29 +77,32 @@ function enqueue_admin_scripts()
     return $tag;
   }, 10, 3);
 
-  add_action('enqueue_block_editor_assets', __NAMESPACE__ . '\add_admin_script');
+  add_action('enqueue_block_editor_assets', function () use ($slug, $path) {
+    namespace\add_admin_script($slug, $path);
+  });
 }
 
 
 /**
  * Register the CSS
  */
-function enqueue_admin_styles()
+function enqueue_admin_styles($slug, $path)
 {
-  if (!file_exists(dirname(__FILE__) . '/../../admin/dist/manifest.json')) return;
+  if (!file_exists($path . '/dist/manifest.json')) return;
   add_action(
     'admin_enqueue_scripts',
-    function () {
+    function () use ($slug, $path) {
       // theme path
-      $path = get_template_directory_uri();
+      $public_path = get_template_directory_uri();
+      $dirPath = getLastPath($path);
 
       if (WP_ENV !== 'development') {
         // get file name from manifest
-        $config = Helpers\getManifest('admin/dist/manifest.json');
+        $config = helpers\getManifest(substr($dirPath, 1) . '/dist/manifest.json');
         if (!$config) return;
         $files = get_object_vars($config);
         // order files
-        $ordered = Helpers\orderManifest($files);
+        $ordered = helpers\orderManifest($files);
         // search css key
         foreach ($ordered as $key => $value) {
           // only entry and css
@@ -81,10 +111,10 @@ function enqueue_admin_styles()
           // $css is array
           foreach ($css as $file) {
             // get token file
-            $token = Helpers\getTokenName($file);
+            $token = helpers\getTokenName($file);
             wp_enqueue_style(
-              'press-wind-theme-' . $key,
-              $path . '/admin/dist/' . $file,
+              $slug . '-' . $key,
+              $public_path . $dirPath . '/dist/' . $file,
               array(),
               $key,
               'all'
@@ -97,7 +127,8 @@ function enqueue_admin_styles()
 }
 
 
-
-
-add_action('init', __NAMESPACE__ . '\enqueue_admin_scripts');
-add_action('init', __NAMESPACE__ . '\enqueue_admin_styles');
+function initAdminAssets($slug, $path)
+{
+  namespace\enqueue_admin_scripts($slug, $path);
+  namespace\enqueue_admin_styles($slug, $path);
+}

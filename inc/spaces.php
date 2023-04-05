@@ -42,6 +42,10 @@ class Spaces
   {
     $switch_gm_spaces = get_query_var('gm_spaces', null);
 
+    if (is_admin()) {
+      return;
+    }
+
     if (!isset($_COOKIE['gm_spaces']) || $switch_gm_spaces !== null) {
 
       $defaultSpace = null;
@@ -120,13 +124,14 @@ class Spaces
       $lang = \pll_current_language();
     }
 
-    echo '<ul>';
+    $short = '<ul>';
     // get current url without query string
     $currentUrl = strtok(get_site_url() . $_SERVER['REQUEST_URI'], '?');
     foreach ($this->spaces as $space) {
-      echo '<li><a href="' . $currentUrl . '?gm_spaces=' . $space->id . '" class="' . (self::$currentSpace->id === $space->id ? 'current-space' : '') . '">' . $space->{'name_' . $lang} . '</a></li>';
+      $short .= '<li><a href="' . $currentUrl . '?gm_spaces=' . $space->id . '" class="' . (self::$currentSpace && self::$currentSpace->id === $space->id ? 'current-space' : '') . '">' . $space->{'name_' . $lang} . '</a></li>';
     }
-    echo '</ul>';
+    $short .= '</ul>';
+    return $short;
   }
 }
 

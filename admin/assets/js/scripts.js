@@ -1,4 +1,7 @@
+// import './visibility'
+
 wp.domReady(() => {
+  // addVisibility()
   // exemple for add styles to block image
   // wp.blocks.registerBlockStyle('core/image', {
   //   name: 'bottom-right',
@@ -15,7 +18,7 @@ wp.domReady(() => {
 
   // sometime unregister don't work without that
   window._wpLoadBlockEditor.then(() => {
-    console.log('Gutenberg ready !')
+    // console.log('Gutenberg ready !')
     // remove styles
     wp.blocks.unregisterBlockStyle('core/button', [
       'default',
