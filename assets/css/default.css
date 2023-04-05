@@ -96,3 +96,7 @@ a {
 .wp-block-wp-performance-prism-my-code {
   @apply max-w-[calc(100vw-2rem)];
 }
+
+.current-space {
+  @apply text-blue-600;
+}

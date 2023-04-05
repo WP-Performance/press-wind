@@ -13,7 +13,7 @@ require_once dirname(__FILE__) . '/inc/core/core.php';
 require_once dirname(__FILE__) . '/options/options_page.php';
 
 // spaces
-require_once dirname(__FILE__) . '/inc/spaces.php';
+require_once dirname(__FILE__) . '/inc/Spaces.php';
 
 // inc, you can modify this files like you want
 require_once dirname(__FILE__) . '/inc/disable.php';
