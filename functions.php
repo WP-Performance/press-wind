@@ -2,6 +2,8 @@
 
 namespace  PressWind;
 
+use function PressWind\Inc\Core\load_assets;
+
 if (!defined('WP_ENV')) {
   define('WP_ENV', 'development');
 }
@@ -17,7 +19,6 @@ require_once dirname(__FILE__) . '/inc/gutenberg.php';
 if (file_exists(dirname(__FILE__) . '/inc/pwa_head.php')) {
   include dirname(__FILE__) . '/inc/pwa_head.php';
 }
-
 
 /**
  * Theme setup.
@@ -52,8 +53,16 @@ function setup()
   // 'secondary' => __('Secondary Menu', 'press-wind')
   // ));
 
-
   load_theme_textdomain('press-wind', get_template_directory() . '/languages');
 }
 
 add_action('after_setup_theme', __NAMESPACE__ . '\setup');
+
+/**
+ * init assets front
+ */
+load_assets('press-wind', dirname(__FILE__) . '', '3000');
+/**
+ * init assets admin
+ */
+load_assets('press-wind-admin', dirname(__FILE__) . '/admin', '4444', true);

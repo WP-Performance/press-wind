@@ -1,7 +1,6 @@
 <?php
 
-namespace PressWind\inc\Gutenberg;
-
+namespace PressWind\Inc;
 
 /**
  * gutenberg settings
@@ -18,11 +17,8 @@ function setup()
   // responsive embed
   add_theme_support('responsive-embeds');
 
-
-  /** PATTERNS SECTION */
-
   // add category for theme patterns
-  register_block_pattern_category('press-wind/press-wind-patterns', array('label' => __('Press Wind', 'press-wind')));
+  register_block_pattern_category('press-wind/press-wind-patterns', ['label' => __('Press Wind', 'press-wind')]);
   // add theme support for the core-block-patterns
   // add_theme_support('core-block-patterns');
 
@@ -37,6 +33,5 @@ function setup()
   // unregister_block_pattern_category('header');
   // unregister_block_pattern_category('footer');
 }
-
 
 add_action('init', __NAMESPACE__ . '\setup');

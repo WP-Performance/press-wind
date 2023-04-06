@@ -9,6 +9,7 @@ specifiers:
   '@wordpress/eslint-plugin': ^14.3.0
   autoprefixer: ^10.4.14
   babel-preset-env: ^1.7.0
+  classnames: ^2.3.2
   core-js: ^3.30.0
   cross-env: ^7.0.3
   exec-php: ^0.0.6
@@ -36,6 +37,7 @@ devDependencies:
   '@wordpress/eslint-plugin': 14.3.0_prettier@2.8.7
   autoprefixer: 10.4.14_postcss@8.4.21
   babel-preset-env: 1.7.0
+  classnames: 2.3.2
   core-js: 3.30.0
   cross-env: 7.0.3
   exec-php: 0.0.6
@@ -3143,6 +3145,10 @@ packages:
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
+    dev: true
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: true
 
   /cliui/7.0.4:
