@@ -2,8 +2,8 @@
 
 namespace PressWind\Inc\Core;
 
-require_once(dirname(__FILE__) . '/helpers/getManifest.php');
-require_once(dirname(__FILE__) . '/helpers/getTokenName.php');
+require_once(dirname(__FILE__) . '/helpers/get_manifest.php');
+require_once(dirname(__FILE__) . '/helpers/get_token_name.php');
 
 /**
  * Enqueue scripts.
@@ -16,13 +16,13 @@ function add_admin_script()
 
     if (WP_ENV !== 'development') {
         // get files name list from manifest
-        $config = Helpers\getManifest('admin/dist/manifest.json');
+        $config = Helpers\get_manifest('admin/dist/manifest.json');
 
         if (!$config) return;
         // load others files
         $files = get_object_vars($config);
         // order files
-        $ordered = Helpers\orderManifest($files);
+        $ordered = Helpers\order_manifest($files);
 
         // loop for enqueue script
         foreach ($ordered as $key => $value) {
@@ -68,11 +68,11 @@ function enqueue_admin_styles()
 
             if (WP_ENV !== 'development') {
                 // get file name from manifest
-                $config = Helpers\getManifest('admin/dist/manifest.json');
+                $config = Helpers\get_manifest('admin/dist/manifest.json');
                 if (!$config) return;
                 $files = get_object_vars($config);
                 // order files
-                $ordered = Helpers\orderManifest($files);
+                $ordered = Helpers\order_manifest($files);
                 // search css key
                 foreach ($ordered as $key => $value) {
                     // only entry and css
@@ -81,7 +81,7 @@ function enqueue_admin_styles()
                     // $css is array
                     foreach ($css as $file) {
                         // get token file
-                        $token = Helpers\getTokenName($file);
+                        $token = Helpers\get_token_name($file);
                         wp_enqueue_style(
                             'press-wind-theme-' . $key,
                             $path . '/admin/dist/' . $file,
