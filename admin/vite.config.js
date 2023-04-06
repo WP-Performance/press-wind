@@ -13,7 +13,7 @@ const viteAdminConfig = {
     plugins: [...viteConfig.plugins, react()],
     base:
       process.env.APP_ENV === 'development'
-        ? `/wp-content/themes/${getThemeDir()}/admin/`
+        ? `/wp-content/themes/${getThemeDir()}/`
         : `/wp-content/themes/${getThemeDir()}/admin/dist/`,
     build: {
       ...viteConfig.build,

@@ -8,10 +8,10 @@ import getThemeDir from './inc/js-helpers/getThemeDir.js'
 export const viteConfig = {
   cacheDir: './node_modules/.vite/press-wind',
   plugins: [
-    liveReload([
-      __dirname + '/**/*.php',
-      // __dirname + '/**/*.twig'
-    ]),
+    // liveReload([
+    // __dirname + '/**/*.php',
+    // __dirname + '/**/*.twig'
+    // ]),
     legacy({
       // target is default
       targets: ['defaults', 'ie >= 11'],

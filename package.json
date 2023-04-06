@@ -23,6 +23,7 @@
     "@wordpress/eslint-plugin": "^14.3.0",
     "autoprefixer": "^10.4.14",
     "babel-preset-env": "^1.7.0",
+    "classnames": "^2.3.2",
     "core-js": "^3.30.0",
     "cross-env": "^7.0.3",
     "exec-php": "^0.0.6",
@@ -41,7 +42,6 @@
     "vite": "4.2.1",
     "vite-plugin-live-reload": "^3.0.2"
   },
-  "dependencies": {},
   "browserslist": [
     "extends @wordpress/browserslist-config"
   ],

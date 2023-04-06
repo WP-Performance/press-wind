@@ -1,3 +1,5 @@
+import './exemple-visibility'
+
 wp.domReady(() => {
   // exemple for add styles to block image
   // wp.blocks.registerBlockStyle('core/image', {
