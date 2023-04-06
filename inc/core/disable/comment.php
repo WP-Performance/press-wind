@@ -1,10 +1,10 @@
 <?php
 
-namespace PressWind\inc\core\disable\comment;
+namespace PressWind\Inc\Core\Disable;
 
 require_once dirname(__FILE__) . '/../index.php';
 
-function init()
+function init_disable_comment()
 {
   $config = getConfig();
   if ($config['disable']['comment']) {
@@ -67,9 +67,9 @@ function init()
 
     // Disables comments feeds.
     add_filter('feed_links_show_comments_feed', '__return_false');
-    add_action('do_feed_rss2_comments', __NAMESPACE__ . '\disable_feeds', 1);
-    add_action('do_feed_atom_comments', __NAMESPACE__ . '\disable_feeds', 1);
+    add_action('do_feed_rss2_comments', __NAMESPACE__ . '\disable_feeds_rss', 1);
+    add_action('do_feed_atom_comments', __NAMESPACE__ . '\disable_feeds_rss', 1);
   }
 }
 
-init();
+init_disable_comment();

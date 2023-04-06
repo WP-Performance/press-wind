@@ -1,17 +1,12 @@
 <?php
 
-namespace PressWind\inc\core\disable\oembed;
+namespace PressWind\Inc\Core\Disable;
 
 require_once dirname(__FILE__) . '/../index.php';
 
 
-// Redirects all feeds to home page.
-function disable_feeds(): void
-{
-  wp_redirect(site_url());
-}
 
-function init()
+function init_disable_oembed()
 {
   $config = getConfig();
   if ($config['disable']['oembed']) {
@@ -21,4 +16,4 @@ function init()
   }
 }
 
-init();
+init_disable_oembed();

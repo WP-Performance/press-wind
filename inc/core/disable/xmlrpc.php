@@ -1,17 +1,11 @@
 <?php
 
-namespace PressWind\inc\core\disable\xmlrpc;
+namespace PressWind\Inc\Core\Disable;
 
 require_once dirname(__FILE__) . '/../index.php';
 
 
-// Redirects all feeds to home page.
-function disable_feeds(): void
-{
-  wp_redirect(site_url());
-}
-
-function init()
+function init_disable_xmlrpc()
 {
   $config = getConfig();
   if ($config['disable']['xmlrpc']) {
@@ -23,4 +17,4 @@ function init()
   }
 }
 
-init();
+init_disable_xmlrpc();

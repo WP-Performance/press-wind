@@ -1,24 +1,24 @@
 <?php
 
-namespace PressWind\inc\core\helpers;
+namespace PressWind\Inc\Core\Helpers;
 
 require_once(dirname(__FILE__) . '/getTokenName.php');
 
 function orderManifest($manifest)
 {
-  // remove no entry
-  $cleaned = keepEntries($manifest);
+    // remove no entry
+    $cleaned = keepEntries($manifest);
 
-  // ordered
-  $ordered = moveLegacyAndPolyfill($cleaned);
+    // ordered
+    $ordered = moveLegacyAndPolyfill($cleaned);
 
-  $orderedWithToken = [];
-  // add token
-  foreach ($ordered['ordered'] as $key => $value) {
-    $orderedWithToken[getTokenName($value->file)] = $value;
-  }
+    $orderedWithToken = [];
+    // add token
+    foreach ($ordered['ordered'] as $key => $value) {
+        $orderedWithToken[getTokenName($value->file)] = $value;
+    }
 
-  return $orderedWithToken;
+    return $orderedWithToken;
 }
 
 
@@ -27,27 +27,27 @@ function orderManifest($manifest)
  */
 function moveLegacyAndPolyfill($manifest)
 {
-  $legacy = null;
-  $polyfill = null;
-  $cleaned = [];
-  foreach ($manifest as $key => $value) {
-    // polyfill
-    if (strpos($value->src, 'polyfills') > 0 && strpos($value->src, 'legacy') > 0) {
-      $polyfill = $value;
-      // legacy
-    } elseif (strpos($value->src, 'polyfills') === false && strpos($value->src, 'legacy') > 0) {
-      $legacy = $value;
-    } else {
-      $cleaned[] = $value;
+    $legacy = null;
+    $polyfill = null;
+    $cleaned = [];
+    foreach ($manifest as $key => $value) {
+        // polyfill
+        if (strpos($value->src, 'polyfills') > 0 && strpos($value->src, 'legacy') > 0) {
+            $polyfill = $value;
+            // legacy
+        } elseif (strpos($value->src, 'polyfills') === false && strpos($value->src, 'legacy') > 0) {
+            $legacy = $value;
+        } else {
+            $cleaned[] = $value;
+        }
     }
-  }
-  return [
-    'legacy' => $legacy,
-    'polyfill' => $polyfill,
-    'cleaned' => $cleaned,
-    // polyfill before legacy
-    'ordered' => array_merge($cleaned, [$polyfill, $legacy])
-  ];
+    return [
+        'legacy' => $legacy,
+        'polyfill' => $polyfill,
+        'cleaned' => $cleaned,
+        // polyfill before legacy
+        'ordered' => array_merge($cleaned, [$polyfill, $legacy])
+    ];
 }
 
 
@@ -57,11 +57,11 @@ function moveLegacyAndPolyfill($manifest)
  */
 function keepEntries($manifest)
 {
-  $clean = [];
-  foreach ($manifest as $key => $value) {
-    if (property_exists($value, 'isEntry') === true) {
-      $clean[] = $value;
+    $clean = [];
+    foreach ($manifest as $key => $value) {
+        if (property_exists($value, 'isEntry') === true) {
+            $clean[] = $value;
+        }
     }
-  }
-  return $clean;
+    return $clean;
 }

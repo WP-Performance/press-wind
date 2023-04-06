@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\core;
+namespace PressWind\Inc\Core;
 
 
 require_once dirname(__FILE__) . '/disable/index.php';
