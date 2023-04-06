@@ -9,10 +9,7 @@
  * E.g., it puts together the home page when no home.php file exists.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package blank
  */
-
 get_header();
 ?>
 
@@ -20,29 +17,26 @@ get_header();
   <div class="main-content">
 
     <?php
-    if (have_posts()) :
-
-      /* Start the Loop */
-      while (have_posts()) :
-        the_post();
-        if (!is_home() && !is_front_page()) :
-    ?>
+    if (have_posts()) {
+        /* Start the Loop */
+        while (have_posts()) {
+            the_post();
+            if (! is_home() && ! is_front_page()) {
+                ?>
           <h1><?php the_title(); ?></h1>
       <?php
-        endif;
-        the_content();
-
-      endwhile;
-
-    else :
-      ?>
+            }
+            the_content();
+        }
+    } else {
+        ?>
 
       <p>No posts found. :(</p>
 
     <?php
 
-    endif;
-    ?>
+    }
+?>
   </div>
 
 </main><!-- #main -->

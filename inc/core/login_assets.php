@@ -8,7 +8,7 @@ function login_assets()
         wp_enqueue_style(
             'custom-login-assets',
             get_template_directory_uri() . '/admin/assets/css/custom-login.css',
-            array('login')
+            ['login']
         );
     }
 }

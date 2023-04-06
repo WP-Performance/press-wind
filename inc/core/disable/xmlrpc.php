@@ -4,7 +4,6 @@ namespace PressWind\Inc\Core\Disable;
 
 require_once dirname(__FILE__) . '/../index.php';
 
-
 function init_disable_xmlrpc()
 {
     $config = get_config();

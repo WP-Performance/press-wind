@@ -10,7 +10,9 @@
     "build:admin": "APP_ENV=production vite build --config admin/vite.config.js",
     "watch:editor": "APP_ENV=development IS_EDITOR=true node_modules/.bin/postcss -w --verbose --no-map assets/css/editor.css -o style-editor.css",
     "build:editor": "NODE_ENV=production IS_EDITOR=true node_modules/.bin/postcss assets/css/editor.css -o style-editor.css",
-    "favicon": "node ./inc/core/faviconGenerator.mjs"
+    "favicon": "node ./inc/core/faviconGenerator.mjs",
+    "php:lint": "./vendor/bin/duster lint",
+    "php:fix": "./vendor/bin/duster fix"
   },
   "author": "Faramaz Patrick<info@goodmotion.fr>",
   "license": "ISC",

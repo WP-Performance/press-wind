@@ -4,7 +4,6 @@ namespace PressWind\Inc\Core\Disable;
 
 require_once dirname(__FILE__) . '/../index.php';
 
-
 // Redirects all feeds to home page.
 function disable_feeds_rss(): void
 {

@@ -47,6 +47,6 @@ return [
         // disble rest user endpoint
         'rest_user' => true,
         // disable jquery
-        'jquery' => true
-    ]
+        'jquery' => true,
+    ],
 ];
