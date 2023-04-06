@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\inc\disable;
+namespace PressWind\Inc;
 
 /*
  * Source from https://github.com/vinkla/headache

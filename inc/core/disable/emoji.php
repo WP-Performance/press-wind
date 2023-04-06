@@ -1,12 +1,12 @@
 <?php
 
-namespace PressWind\inc\core\disable\emoji;
+namespace PressWind\Inc\Core\Disable;
 
 require_once dirname(__FILE__) . '/../index.php';
 
 
 
-function init()
+function init_disable_emoji()
 {
   $config = getConfig();
   if ($config['disable']['emoji']) {
@@ -21,4 +21,4 @@ function init()
   }
 }
 
-init();
+init_disable_emoji();
