@@ -4,7 +4,7 @@
  * return config global
  * @return array
  */
-function getConfig()
+function get_config()
 {
   // default values
   $default = include dirname(__FILE__) . '/default.php';

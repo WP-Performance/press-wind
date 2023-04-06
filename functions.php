@@ -2,6 +2,8 @@
 
 namespace  PressWind;
 
+use function PressWind\Inc\Core\load_assets;
+
 if (!defined('WP_ENV')) {
   define('WP_ENV', 'development');
 }
@@ -57,3 +59,13 @@ function setup()
 }
 
 add_action('after_setup_theme', __NAMESPACE__ . '\setup');
+
+
+/**
+ * init assets front
+ */
+load_assets('press-wind', dirname(__FILE__) . '', '3000');
+/**
+ * init assets admin
+ */
+load_assets('press-wind-admin', dirname(__FILE__) . '/admin', '4444', true);
