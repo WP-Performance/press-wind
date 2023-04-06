@@ -8,7 +8,6 @@ function init_disable_comment()
 {
     $config = get_config();
     if ($config['disable']['comment']) {
-
         // Disable comments.
         add_action('admin_init', function () {
             // Redirect any user trying to access comments page
