@@ -5,7 +5,10 @@ module.exports = {
   corePlugins: {
     preflight: process.env.IS_EDITOR ? false : usePreflightFront,
   },
-  content: ['./**/*.{php,twig,html,json}', './assets/*.{js,jsx,ts,tsx,vue}'],
+  content: [
+    // './**/*.{php,twig,html,json}',
+    './assets/*.{js,jsx,ts,tsx,vue}'
+  ],
   safelist: [],
   theme: {
     fontFamily: {
