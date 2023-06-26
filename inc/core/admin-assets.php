@@ -30,7 +30,7 @@ function add_admin_script()
     }
   } else {
     // development
-    wp_enqueue_script('press-wind-theme', 'http://localhost:4444/admin/main.js', ['wp-blocks', 'wp-dom'], strtotime('now'), true);
+    wp_enqueue_script('press-wind-theme', 'https://localhost:4444/admin/main.js', ['wp-blocks', 'wp-dom'], strtotime('now'), true);
   }
 }
 
