@@ -8,7 +8,7 @@
 ?>
 
 
-<!-- wp:group {"className":"pattern-example"} -->
+<!-- wp:group {"className":"pattern-example","templateLock":"contentOnly"} -->
 <div class="wp-block-group pattern-example">
   <!-- wp:heading {"textAlign":"center","textColor":"tertiary"} -->
   <h2 class="has-text-align-center has-tertiary-color has-text-color">Pattern example</h2>

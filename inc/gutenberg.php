@@ -17,11 +17,6 @@ function setup()
     // responsive embed
     add_theme_support('responsive-embeds');
 
-    // remove template support
-    remove_theme_support('block-templates');
-
-    /** PATTERNS SECTION */
-
     // add category for theme patterns
     register_block_pattern_category('press-wind/press-wind-patterns', ['label' => __('Press Wind', 'press-wind')]);
     // add theme support for the core-block-patterns

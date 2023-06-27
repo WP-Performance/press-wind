@@ -1,6 +1,6 @@
-# Press Wind
+# Press Wind FSE Version
 
-Minimal boilerplate theme for WordPress with Tailwind CSS and Vite JS.
+Minimal starter theme for WordPress with Tailwind CSS and Vite JS for Full Site Editing.
 
 ## 👉 [Complete documentation here](https://presswind-doc.wp-performance.com/)
 
@@ -14,18 +14,15 @@ A example of pattern is in ```patterns``` directory.
 The theme.json is used for the settings of theme.
 The fonts pass by the new WP font loader. Not by CSS or TailwindCSS.
 
-## PHP files
+## PHP/HTML files
 
-This theme has just the minimal php file.
-With gutenberg blocks, it's normally sufficient
-
+This theme is developed for use Full Site Editing.
 
 ## Dependencies
 
 - [PostCSS](https://postcss.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [ViteJS](https://vitejs.dev/)
-
 
 ## Requirement
 
@@ -76,11 +73,13 @@ return [
 In the root of press-wind theme
 
 Install dependencies
+
 ```
-npm i
+yarn
 ```
 
 In your ```wp-config.php``` file, add :
+
 ```
 # for dev
 define('WP_ENV', 'development');
@@ -88,26 +87,26 @@ define('WP_ENV', 'development');
 define('WP_ENV', 'production');
 ```
 
-### With Vitejs, you have a dev server include. When you change a file, the browser reload the page.
+### With Vitejs, you have a dev server include. When you change a file, the browser reload the page
 
 ## Scripts
 
 Launch dev mode
+
 ```
-npm run dev
+yarn dev
+```
+
+Launch dev mode with editor file for admin
+
+```
+yarn dev:editor
 ```
 
 Build the assets
-```
-npm run build
-```
-
-Generate favicon
-
-Add values in ```config/global.php``` file and run :
 
 ```
-npm run favicon
+yarn build
 ```
 
 ## Enqueue Scripts and Styles
@@ -115,13 +114,13 @@ npm run favicon
 The script and the style are automatically enqueued in theme.
 The "assets" code is in file : ```inc > assets.php```
 
-
 ## CSS writing style
 
 You must use ```@apply``` method for create the CSS style
 It's better for reusability of your code and the readability.
 
 Example :
+
 ```
 .site-header {
   @apply flex my-4 lg:my-10 lg:items-center lg:flex-row flex-col;
@@ -134,7 +133,6 @@ Example :
 
 In ```inc > disable.php```, lots of feature are disabled.
 You can comment for not disable stuff for your project like you want.
-
 
 ## Screenshot
 
