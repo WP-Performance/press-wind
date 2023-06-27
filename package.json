@@ -12,7 +12,8 @@
     "build:editor": "NODE_ENV=production IS_EDITOR=true node_modules/.bin/postcss assets/css/editor.css -o style-editor.css",
     "favicon": "node ./inc/core/faviconGenerator.mjs",
     "php:lint": "./vendor/bin/duster lint",
-    "php:fix": "./vendor/bin/duster fix"
+    "php:fix": "./vendor/bin/duster fix",
+    "php:test": "./vendor/bin/pest ./inc/core/tests"
   },
   "author": "Faramaz Patrick<info@goodmotion.fr>",
   "license": "ISC",
