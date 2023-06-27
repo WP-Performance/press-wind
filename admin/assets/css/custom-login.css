@@ -1,5 +1,5 @@
 body {
-  background: #232634;
+  background: #aab5e7;
 }
 
 /* Logo */
@@ -11,13 +11,13 @@ body {
 
 #login form,
 .login form {
-  background-color: #232634;
+  background-color: #aab5e7;
   border: 0;
 }
 
 #login form label,
 .login form label {
-  color: #bbbfce;
+  color: #2d385f;
 }
 
 /* Bouton */

@@ -1,4 +1,4 @@
-import initExtension from './example-extension.jsx'
+import './exemple-visibility'
 
 wp.domReady(() => {
   // exemple for add styles to block image

@@ -1,24 +1,17 @@
 <?php
 
-namespace PressWind\inc\core\disable\oembed;
+namespace PressWind\Inc\Core\Disable;
 
 require_once dirname(__FILE__) . '/../index.php';
 
-
-// Redirects all feeds to home page.
-function disable_feeds(): void
+function init_disable_oembed()
 {
-  wp_redirect(site_url());
+    $config = get_config();
+    if ($config['disable']['oembed']) {
+        // Removes oEmbeds.
+        remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+        remove_action('wp_head', 'wp_oembed_add_host_js');
+    }
 }
 
-function init()
-{
-  $config = getConfig();
-  if ($config['disable']['oembed']) {
-    // Removes oEmbeds.
-    remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
-    remove_action('wp_head', 'wp_oembed_add_host_js');
-  }
-}
-
-init();
+init_disable_oembed();
