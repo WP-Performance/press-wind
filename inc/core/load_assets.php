@@ -36,7 +36,7 @@ function get_wp_path($path)
 /**
  * Enqueue scripts.
  */
-function add_script($slug, $path, $port, $is_admin)
+function add_script($slug, $path, $port, $is_admin, $is_ts = false)
 {
   // for theme
   $public_path = get_template_directory_uri();
@@ -60,14 +60,14 @@ function add_script($slug, $path, $port, $is_admin)
     }
   } else {
     // development
-    wp_enqueue_script($slug, 'https://localhost:' . $port . '/wp-content' . get_wp_path($path) . '/main.js', [], strtotime('now'), true);
+    wp_enqueue_script($slug, 'https://localhost:' . $port . '/wp-content' . get_wp_path($path) . '/main' . ($is_ts ? '.ts' : '.js'), [], strtotime('now'), true);
   }
 }
 
 /**
  * Register the JavaScript for the public-facing side of the site.
  */
-function enqueue_scripts($slug, $path, $port, $is_admin)
+function enqueue_scripts($slug, $path, $port, $is_admin, $is_ts = false)
 {
   // update script tag with module attribute
   add_filter('script_loader_tag', function ($tag, $handle, $src) use ($slug) {
@@ -80,8 +80,8 @@ function enqueue_scripts($slug, $path, $port, $is_admin)
     return $tag;
   }, 10, 3);
 
-  add_action($is_admin ? 'enqueue_block_editor_assets' : 'wp_enqueue_scripts', function () use ($slug, $path, $port, $is_admin) {
-    namespace\add_script($slug, $path, $port, $is_admin);
+  add_action($is_admin ? 'enqueue_block_editor_assets' : 'wp_enqueue_scripts', function () use ($slug, $path, $port, $is_admin, $is_ts) {
+    namespace\add_script($slug, $path, $port, $is_admin, $is_ts);
   });
 }
 
@@ -134,8 +134,16 @@ function enqueue_styles($slug, $path, $is_admin)
   );
 }
 
-function load_assets($slug, $path, $port = '4444', $is_admin = false)
+/**
+ * Load assets
+ * @param string $slug - unique slug
+ * @param string $path - path for main file ex: dirname(__FILE__) for root them from function.php
+ * @param string $port - port for development
+ * @param bool $is_admin - if true, load only for admin
+ * @param bool $is_ts - if true, load .ts instead of .js
+ */
+function load_assets($slug, $path, $port = '4444', $is_admin = false, $is_ts = false)
 {
-  namespace\enqueue_scripts($slug, $path, $port, $is_admin);
+  namespace\enqueue_scripts($slug, $path, $port, $is_admin, $is_ts);
   namespace\enqueue_styles($slug, $path, $is_admin);
 }
