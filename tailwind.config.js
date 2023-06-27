@@ -7,7 +7,7 @@ module.exports = {
   },
   content: [
     // './**/*.{php,twig,html,json}',
-    './assets/*.{js,jsx,ts,tsx,vue}'
+    './assets/*.{js,jsx,ts,tsx,vue}',
   ],
   safelist: [],
   theme: {

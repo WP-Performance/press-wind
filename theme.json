@@ -1,5 +1,6 @@
 {
-  "$schema": "https://schemas.wp.org/wp/6.0/theme.json",
+  "$schema": "https://schemas.wp.org/wp/6.2/theme.json",
+  "version": 2,
   "customTemplates": [],
   "settings": {
     "appearanceTools": true,
@@ -10,48 +11,48 @@
             "#000000",
             "#ffffff"
           ],
-          "name": "Foreground and background",
-          "slug": "foreground-and-background"
+          "slug": "foreground-and-background",
+          "name": "Foreground and background"
         },
         {
           "colors": [
             "#000000",
             "#ffe2c7"
           ],
-          "name": "Foreground and secondary",
-          "slug": "foreground-and-secondary"
+          "slug": "foreground-and-secondary",
+          "name": "Foreground and secondary"
         },
         {
           "colors": [
             "#000000",
             "#f6f6f6"
           ],
-          "name": "Foreground and tertiary",
-          "slug": "foreground-and-tertiary"
+          "slug": "foreground-and-tertiary",
+          "name": "Foreground and tertiary"
         },
         {
           "colors": [
             "#1a4548",
             "#ffffff"
           ],
-          "name": "Primary and background",
-          "slug": "primary-and-background"
+          "slug": "primary-and-background",
+          "name": "Primary and background"
         },
         {
           "colors": [
             "#1a4548",
             "#ffe2c7"
           ],
-          "name": "Primary and secondary",
-          "slug": "primary-and-secondary"
+          "slug": "primary-and-secondary",
+          "name": "Primary and secondary"
         },
         {
           "colors": [
             "#1a4548",
             "#f6f6f6"
           ],
-          "name": "Primary and tertiary",
-          "slug": "primary-and-tertiary"
+          "slug": "primary-and-tertiary",
+          "name": "Primary and tertiary"
         }
       ],
       "gradients": [

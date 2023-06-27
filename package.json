@@ -12,42 +12,44 @@
     "build:editor": "NODE_ENV=production IS_EDITOR=true node_modules/.bin/postcss assets/css/editor.css -o style-editor.css",
     "favicon": "node ./inc/core/faviconGenerator.mjs",
     "php:lint": "./vendor/bin/duster lint",
-    "php:fix": "./vendor/bin/duster fix"
+    "php:fix": "./vendor/bin/duster fix",
+    "php:test": "./vendor/bin/pest ./inc/core/tests"
   },
   "author": "Faramaz Patrick<info@goodmotion.fr>",
   "license": "ISC",
   "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
     "@_tw/themejson": "^0.1.2",
-    "@babel/plugin-transform-arrow-functions": "^7.20.7",
-    "@vitejs/plugin-legacy": "^4.0.2",
-    "@vitejs/plugin-react": "^4.0.0",
-    "@wordpress/browserslist-config": "^5.14.0",
-    "@wordpress/eslint-plugin": "^14.4.0",
+    "@babel/plugin-transform-arrow-functions": "^7.22.5",
+    "@vitejs/plugin-legacy": "^4.0.5",
+    "@vitejs/plugin-react": "^4.0.1",
+    "@wordpress/browserslist-config": "^5.19.0",
+    "@wordpress/eslint-plugin": "^14.8.1",
     "autoprefixer": "^10.4.14",
     "babel-preset-env": "^1.7.0",
     "classnames": "^2.3.2",
-    "core-js": "^3.30.1",
+    "core-js": "^3.31.0",
     "cross-env": "^7.0.3",
     "exec-php": "^0.0.6",
-    "favicons": "^7.1.2",
-    "postcss": "^8.4.23",
+    "favicons": "^7.1.3",
+    "postcss": "^8.4.24",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
-    "postcss-preset-env": "^8.3.2",
+    "postcss-preset-env": "^8.5.1",
     "postcss-url": "^10.1.3",
     "precss": "^4.0.0",
     "prettier": "^2.8.8",
-    "stylelint": "^15.6.0",
+    "stylelint": "^15.9.0",
     "stylelint-config-wordpress": "^17.0.0",
-    "tailwindcss": "3.3.1",
-    "terser": "^5.17.1",
-    "vite": "4.3.1",
+    "tailwindcss": "3.3.2",
+    "terser": "^5.18.1",
+    "vite": "4.3.9",
     "vite-plugin-live-reload": "^3.0.2"
   },
   "browserslist": [
     "extends @wordpress/browserslist-config"
   ],
   "volta": {
-    "node": "16.16.0"
+    "node": "18.16.1"
   }
 }
