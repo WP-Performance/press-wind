@@ -1,6 +1,7 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
+import basicSsl from '@vitejs/plugin-basic-ssl'
 import liveReload from 'vite-plugin-live-reload'
 import getThemeDir from './inc/js-helpers/getThemeDir.js'
 
@@ -8,10 +9,11 @@ import getThemeDir from './inc/js-helpers/getThemeDir.js'
 export const viteConfig = {
   cacheDir: './node_modules/.vite/press-wind',
   plugins: [
-    // liveReload([
-    // __dirname + '/**/*.php',
-    // __dirname + '/**/*.twig'
-    // ]),
+    basicSsl(),
+    liveReload([
+      __dirname + '/**/*.php',
+      // __dirname + '/**/*.twig'
+    ]),
     legacy({
       // target is default
       targets: ['defaults', 'ie >= 11'],
@@ -40,9 +42,9 @@ export const viteConfig = {
     cors: true,
     strictPort: true,
     port: 3000,
-    https: false,
+    https: true,
     hmr: {
-      protocol: 'ws',
+      protocol: 'wss',
       port: 3000,
       // host: 'localhost',
     },
