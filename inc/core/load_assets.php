@@ -11,15 +11,15 @@ require_once dirname(__FILE__) . '/helpers/order_manifest.php';
  */
 function get_last_path($path)
 {
-    $public_path = get_template_directory_uri();
-    // last segment in public path
-    $last_segment = explode('/', $public_path);
-    $last_segment = end($last_segment);
-    // split path from last segment
-    $path = explode($last_segment, $path);
-    $path = count($path) > 0 ? $path[1] : '';
+  $public_path = get_template_directory_uri();
+  // last segment in public path
+  $last_segment = explode('/', $public_path);
+  $last_segment = end($last_segment);
+  // split path from last segment
+  $path = explode($last_segment, $path);
+  $path = count($path) > 0 ? $path[1] : '';
 
-    return $path;
+  return $path;
 }
 
 /**
@@ -27,10 +27,10 @@ function get_last_path($path)
  */
 function get_wp_path($path)
 {
-    // split path from wp-content
-    $_path_ = explode('wp-content', $path);
+  // split path from wp-content
+  $_path_ = explode('wp-content', $path);
 
-    return count($_path_) > 0 ? $_path_[1] : '';
+  return count($_path_) > 0 ? $_path_[1] : '';
 }
 
 /**
@@ -38,30 +38,30 @@ function get_wp_path($path)
  */
 function add_script($slug, $path, $port, $is_admin)
 {
-    // for theme
-    $public_path = get_template_directory_uri();
-    $dirPath = get_last_path($path);
+  // for theme
+  $public_path = get_template_directory_uri();
+  $dirPath = get_last_path($path);
 
-    if (WP_ENV !== 'development') {
-        // get files name list from manifest
-        $config = Helpers\get_manifest(substr($dirPath, 1) . '/dist/manifest.json');
+  if (WP_ENV !== 'development') {
+    // get files name list from manifest
+    $config = Helpers\get_manifest(substr($dirPath, 1) . '/dist/manifest.json');
 
-        if (! $config) {
-            return;
-        }
-        // load others files
-        $files = get_object_vars($config);
-        // order files
-        $ordered = Helpers\order_manifest($files);
-
-        // loop for enqueue script
-        foreach ($ordered as $key => $value) {
-            wp_enqueue_script($slug . '-' . $key, $public_path . $dirPath . '/dist/' . $value->file, [], $key, true);
-        }
-    } else {
-        // development
-        wp_enqueue_script($slug, 'http://localhost:' . $port . '/wp-content' . get_wp_path($path) . '/main.js', [], strtotime('now'), true);
+    if (!$config) {
+      return;
     }
+    // load others files
+    $files = get_object_vars($config);
+    // order files
+    $ordered = Helpers\order_manifest($files);
+
+    // loop for enqueue script
+    foreach ($ordered as $key => $value) {
+      wp_enqueue_script($slug . '-' . $key, $public_path . $dirPath . '/dist/' . $value->file, [], $key, true);
+    }
+  } else {
+    // development
+    wp_enqueue_script($slug, 'https://localhost:' . $port . '/wp-content' . get_wp_path($path) . '/main.js', [], strtotime('now'), true);
+  }
 }
 
 /**
@@ -69,20 +69,20 @@ function add_script($slug, $path, $port, $is_admin)
  */
 function enqueue_scripts($slug, $path, $port, $is_admin)
 {
-    // update script tag with module attribute
-    add_filter('script_loader_tag', function ($tag, $handle, $src) use ($slug) {
-        if (strpos($handle, $slug) === false) {
-            return $tag;
-        }
-        // change the script tag by adding type="module" and return it.
-        $tag = '<script type="module" crossorigin src="' . esc_url($src) . '"></script>';
+  // update script tag with module attribute
+  add_filter('script_loader_tag', function ($tag, $handle, $src) use ($slug) {
+    if (strpos($handle, $slug) === false) {
+      return $tag;
+    }
+    // change the script tag by adding type="module" and return it.
+    $tag = '<script type="module" crossorigin src="' . esc_url($src) . '"></script>';
 
-        return $tag;
-    }, 10, 3);
+    return $tag;
+  }, 10, 3);
 
-    add_action($is_admin ? 'enqueue_block_editor_assets' : 'wp_enqueue_scripts', function () use ($slug, $path, $port, $is_admin) {
-        namespace\add_script($slug, $path, $port, $is_admin);
-    });
+  add_action($is_admin ? 'enqueue_block_editor_assets' : 'wp_enqueue_scripts', function () use ($slug, $path, $port, $is_admin) {
+    namespace\add_script($slug, $path, $port, $is_admin);
+  });
 }
 
 /**
@@ -90,52 +90,52 @@ function enqueue_scripts($slug, $path, $port, $is_admin)
  */
 function enqueue_styles($slug, $path, $is_admin)
 {
-    if (! file_exists($path . '/dist/manifest.json')) {
-        return;
-    }
-    add_action(
-        ($is_admin ? 'admin' : 'wp') . '_enqueue_scripts',
-        function () use ($slug, $path) {
-            // theme path
-            $public_path = get_template_directory_uri();
-            $dirPath = get_last_path($path);
+  if (!file_exists($path . '/dist/manifest.json')) {
+    return;
+  }
+  add_action(
+    ($is_admin ? 'admin' : 'wp') . '_enqueue_scripts',
+    function () use ($slug, $path) {
+      // theme path
+      $public_path = get_template_directory_uri();
+      $dirPath = get_last_path($path);
 
-            if (WP_ENV !== 'development') {
-                // get file name from manifest
-                $config = Helpers\get_manifest(substr($dirPath, 1) . '/dist/manifest.json');
-                if (! $config) {
-                    return;
-                }
-                $files = get_object_vars($config);
-                // order files
-                $ordered = Helpers\order_manifest($files);
-                // search css key
-                foreach ($ordered as $key => $value) {
-                    // only entry and css
-                    if (property_exists($value, 'css') === false) {
-                        continue;
-                    }
-                    $css = $value->css;
-                    // $css is array
-                    foreach ($css as $file) {
-                        // get token file
-                        $token = Helpers\get_token_name($file);
-                        wp_enqueue_style(
-                            $slug . '-' . $key,
-                            $public_path . $dirPath . '/dist/' . $file,
-                            [],
-                            $key,
-                            'all'
-                        );
-                    }
-                }
-            }
+      if (WP_ENV !== 'development') {
+        // get file name from manifest
+        $config = Helpers\get_manifest(substr($dirPath, 1) . '/dist/manifest.json');
+        if (!$config) {
+          return;
         }
-    );
+        $files = get_object_vars($config);
+        // order files
+        $ordered = Helpers\order_manifest($files);
+        // search css key
+        foreach ($ordered as $key => $value) {
+          // only entry and css
+          if (property_exists($value, 'css') === false) {
+            continue;
+          }
+          $css = $value->css;
+          // $css is array
+          foreach ($css as $file) {
+            // get token file
+            $token = Helpers\get_token_name($file);
+            wp_enqueue_style(
+              $slug . '-' . $key,
+              $public_path . $dirPath . '/dist/' . $file,
+              [],
+              $key,
+              'all'
+            );
+          }
+        }
+      }
+    }
+  );
 }
 
 function load_assets($slug, $path, $port = '4444', $is_admin = false)
 {
-    namespace\enqueue_scripts($slug, $path, $port, $is_admin);
-    namespace\enqueue_styles($slug, $path, $is_admin);
+  namespace\enqueue_scripts($slug, $path, $port, $is_admin);
+  namespace\enqueue_styles($slug, $path, $is_admin);
 }
