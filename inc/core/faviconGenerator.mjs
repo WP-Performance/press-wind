@@ -13,7 +13,7 @@ const getconfig = () => {
       if (err) {
         reject(err)
       }
-      php.getconfig((err, result, output, printed) => {
+      php.get_config((err, result, output, printed) => {
         resolve(result)
       })
     })
