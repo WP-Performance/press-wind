@@ -1,4 +1,4 @@
-const { resolve, sep } = require('path')
+import { resolve, sep } from 'path'
 
 // find theme dir name
 function getThemeDir() {
@@ -6,4 +6,4 @@ function getThemeDir() {
   return _path[_path.length - 1]
 }
 
-module.exports = getThemeDir
+export default getThemeDir

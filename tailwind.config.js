@@ -1,3 +1,4 @@
+// we recommend preflight to false for avoid conflict in editor
 const usePreflightFront = false
 
 module.exports = {

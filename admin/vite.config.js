@@ -1,16 +1,24 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
+import EnvironmentPlugin from 'vite-plugin-environment'
 import viteConfig from '../vite.config'
-import getThemeDir from '../inc/js-helpers/getThemeDir.js'
+import getThemeDir from '../js-helpers/getThemeDir.mjs'
 
 const viteAdminConfig = {
+  // vite config from frontend
   ...viteConfig,
   ...{
+    // no public dir
     publicDir: false,
+    // custom cache dir admin for vite
     cacheDir: './node_modules/.vite/press-wind-admin',
-    // add react for use jsx and extends gutenberg blocks :)
-    plugins: [...viteConfig.plugins, react()],
+    plugins: [
+      ...viteConfig.plugins,
+      // add react for use jsx and extends gutenberg blocks :)
+      react(),
+      EnvironmentPlugin({ IS_GUTENBERG_PLUGIN: false }),
+    ],
     base:
       process.env.APP_ENV === 'development'
         ? `/wp-content/themes/${getThemeDir()}/`
@@ -27,6 +35,7 @@ const viteAdminConfig = {
     server: {
       ...viteConfig.server,
       ...{
+        // avoid conflict with front vite port
         port: 4444,
         hmr: {
           ...viteConfig.server.hmr,
