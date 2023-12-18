@@ -1,6 +1,6 @@
 <?php
 
-namespace PressWind\Inc;
+namespace PressWindStarter\Inc;
 
 /**
  * gutenberg settings

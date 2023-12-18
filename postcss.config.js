@@ -1,22 +1,21 @@
-const getThemDir = require('./inc/js-helpers/getThemeDir.js')
+import getThemeDir from './js-helpers/getThemeDir.mjs'
+import url from 'postcss-url'
+import postcssImport from 'postcss-import'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
-const url = require('postcss-url')
-const plug = [
-  require('postcss-import'),
-  require('tailwindcss'),
-  require('autoprefixer'),
-]
+const plug = [postcssImport, tailwindcss, autoprefixer]
 
 // only for editor css
 if (process.env.IS_EDITOR) {
   const options = {
     url: ({ url }) =>
       // replace assets base
-      url.replace('/assets', `/wp-content/themes/${getThemDir()}/assets`),
+      url.replace('/assets', `/wp-content/themes/${getThemeDir()}/assets`),
   }
   plug.push(url(options))
 }
 
-module.exports = {
+export default {
   plugins: plug,
 }

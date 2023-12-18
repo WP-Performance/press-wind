@@ -1,23 +1,19 @@
 import fs from 'fs'
+import { fileURLToPath } from 'url'
+import path from 'path'
 import { favicons } from 'favicons'
-import execPhp from 'exec-php'
-import { dirname } from 'path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 /**
- * Get config from php file !
+ * Get config from json file !
  * @returns object
  */
 const getconfig = () => {
-  return new Promise((resolve, reject) => {
-    execPhp('./inc/core/index.php', (err, php, out) => {
-      if (err) {
-        reject(err)
-      }
-      php.get_config((err, result, output, printed) => {
-        resolve(result)
-      })
-    })
-  })
+  return JSON.parse(
+    fs.readFileSync(`${__dirname}/../config/favicon.json`, 'utf8'),
+  )
 }
 
 // find theme dir name
@@ -27,6 +23,7 @@ export function getThemDir() {
 }
 
 const config = await getconfig()
+
 // directory target for assets generated
 const iconDir = config.iconsDir || 'public'
 // logo source
@@ -34,7 +31,7 @@ const source = config.source
 // directory for build
 const target = `./${iconDir}/`
 // php file to include to head
-const phpHead = './inc/pwa_head.php'
+const phpHead = `${__dirname}/../inc/pwa_head.php`
 // tag filter to remove
 const removeList = [
   'mobile-web-app-capable',
@@ -102,12 +99,12 @@ try {
   const head = response.html
 
   // remove element from removeList
-  removeList.forEach((l) => {
+  for (const l of removeList) {
     const index = head.findIndex((e) => e.includes(l))
     if (index) {
       head.splice(index, 1)
     }
-  })
+  }
 
   // create head for include in page
   fs.writeFileSync(
