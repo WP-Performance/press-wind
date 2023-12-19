@@ -4,6 +4,7 @@
  * @param file - name of file in /dynamic directory without extension
  */
 function importObserver(target, file) {
+  if (!target) return
   // import when target is in viewport
   const observer = new IntersectionObserver(async (entries) => {
     if (entries[0].isIntersecting) {
