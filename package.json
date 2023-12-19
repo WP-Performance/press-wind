@@ -4,19 +4,19 @@
     "description": "Wordpress theme starter with Tailwind CSS and Vite JS for FSE",
     "main": "main.js",
     "type": "module",
+    "author": "Faramaz Patrick<info@goodmotion.fr>",
+    "license": "ISC",
     "scripts": {
         "dev": "cross-env APP_ENV=development vite & npm run watch:editor",
         "build": "APP_ENV=production vite build && npm run build:editor && npm run build:admin",
         "dev:admin": "cross-env APP_ENV=development vite --config admin/vite.config.js",
         "build:admin": "APP_ENV=production vite build --config admin/vite.config.js",
-        "watch:editor": "APP_ENV=development IS_EDITOR=true node_modules/.bin/postcss  --watch --verbose --no-map assets/css/styles.css -o style-editor.css",
-        "build:editor": "NODE_ENV=production IS_EDITOR=true node_modules/.bin/postcss  assets/css/styles.css -o style-editor.css -m",
+        "watch:editor": "APP_ENV=development IS_EDITOR=true node_modules/.bin/postcss -w --verbose --no-map assets/css/styles.css -o style-editor.css",
+        "build:editor": "NODE_ENV=production IS_EDITOR=true node_modules/.bin/postcss assets/css/styles.css -o style-editor.css",
         "favicon": "node js-helpers/faviconGenerator.mjs",
         "php:lint": "./vendor/bin/duster lint",
         "php:fix": "./vendor/bin/duster fix"
     },
-    "author": "Faramaz Patrick<info@goodmotion.fr>",
-    "license": "ISC",
     "trustedDependencies": [
         "sharp"
     ],
@@ -53,7 +53,7 @@
         "postcss-preset-env": "^9.3.0",
         "postcss-url": "^10.1.3",
         "sharp": "^0.33.1",
-        "tailwindcss": "3.3.6",
+        "tailwindcss": "3.3.7",
         "terser": "5.26.0",
         "vite": "5.0.10",
         "vite-plugin-environment": "^1.1.3",
