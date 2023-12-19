@@ -2,14 +2,17 @@
 
 namespace  PressWindStarter;
 
-
+// not defined => development
 if (!defined('WP_ENV')) {
     define('WP_ENV', 'development');
 }
 
 
+// gutenberg setup, change like you want
 require_once dirname(__FILE__) . '/inc/gutenberg.php';
+// auto loading acf blocks
 require_once dirname(__FILE__) . '/inc/acf_blocks.php';
+// auto loading login assets
 require_once dirname(__FILE__) . '/inc/login_assets.php';
 
 
@@ -29,13 +32,15 @@ function setup()
 
     add_theme_support('post-thumbnails');
 
-    load_theme_textdomain('press-wind', get_template_directory() . '/languages');
+    // load i18n text
+    load_theme_textdomain('press-wind-theme', get_template_directory() . '/languages');
 }
 
 add_action('after_setup_theme', __NAMESPACE__ . '\setup');
 
 /**
  * init assets front
+ * require presswind plugin to work
  */
 if (class_exists('PressWind\PWVite')) {
 
