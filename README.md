@@ -15,7 +15,7 @@ The fonts pass by the new WP font loader. Not by CSS or TailwindCSS.
 
 For use ViteJS
 
-- <https://github.com/WP-Performance/presswind-plugin>
+- <https://github.com/WP-Performance/presswind-helpers>
 
 ## Plugin recommended
 
@@ -30,7 +30,7 @@ This theme is developed for use Full Site Editing.
 ## Dependencies
 
 - [PostCSS](https://postcss.org/)
-- [TailwindCSS](https://tailwindcss.com/) - optional. You can use only postcss.
+- [TailwindCSS](https://tailwindcss.com/) - optional. You can use only postcss or lightningCSS.
 - [ViteJS](https://vitejs.dev/)
 
 ## Requirement
