@@ -1,3 +1,4 @@
+// block extensions example
 import './exemple-visibility'
 
 wp.domReady(() => {

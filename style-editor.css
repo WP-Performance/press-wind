@@ -1,7 +1,7 @@
 /** fonts are loaded from the theme.json */
 
 :root {
-  --branding--color: #FFF;
+  --branding--color: #fff;
 
   /** header **/
   --header-bg-color: var(--branding--color);
@@ -55,6 +55,10 @@
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 ::backdrop {
@@ -105,6 +109,10 @@
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 /** DEFAULT FOR EXAMPLE */
@@ -348,4 +356,24 @@ a:hover {
 
 .wp-block-wp-performance-prism-my-code {
   max-width: calc(100vw - 2rem);
+}
+
+/** exemple block extensions */
+
+@media screen and (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .hide-on-tablet {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hide-on-desktop {
+    display: none;
+  }
 }

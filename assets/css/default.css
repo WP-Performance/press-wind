@@ -96,3 +96,20 @@ a {
 .wp-block-wp-performance-prism-my-code {
   @apply max-w-[calc(100vw-2rem)];
 }
+
+/** exemple block extensions */
+@media screen and (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .hide-on-tablet {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hide-on-desktop {
+    display: none;
+  }
+}

@@ -1,5 +1,5 @@
 :root {
-  --branding--color: #FFF;
+  --branding--color: #fff;
 
   /** header **/
   --header-bg-color: var(--branding--color);
